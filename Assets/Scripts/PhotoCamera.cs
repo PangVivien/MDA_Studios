@@ -11,7 +11,7 @@ public class PhotoCamera : MonoBehaviour
 
     private Texture2D capturePhoto;
 
-    private bool isCaptured = false;
+    // private bool isCaptured = false;
 
     [SerializeField] private GameObject completeButton;
 
@@ -45,7 +45,7 @@ public class PhotoCamera : MonoBehaviour
 
         // rawImage.uvRect = new Rect(1, 0, -1, 1);
         webcamTexture.Play();
-        isCaptured = false;
+        // isCaptured = false;
 
         Invoke(nameof(SetCameraView), 0.2f);
 
@@ -78,7 +78,7 @@ public class PhotoCamera : MonoBehaviour
 
         webcamTexture.Stop();
         rawImage.texture = capturePhoto;
-        isCaptured = true;
+        // isCaptured = true;
 
         completeButton.SetActive(true);
     }
@@ -93,7 +93,7 @@ public class PhotoCamera : MonoBehaviour
 
         rawImage.texture = webcamTexture;
         webcamTexture.Play();  
-        isCaptured = false;
+        // isCaptured = false;
 
         Invoke(nameof(SetCameraView), 0.2f);
 
