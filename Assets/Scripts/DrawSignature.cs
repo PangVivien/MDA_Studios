@@ -62,6 +62,7 @@ public class DrawSignature : MonoBehaviour
             DrawLine(lastPos, texPos);
             lastPos = texPos;
 
+            tex.Apply();
         }
         else
         {
@@ -73,12 +74,12 @@ public class DrawSignature : MonoBehaviour
     {
         float dist = Vector2.Distance(from, to);
 
-        for(float i = 0; i < dist; i++)
+        for (float i = 0; i < dist; i++)
         {
             Vector2 pos = Vector2.Lerp(from, to, i / dist);
             Brush((int)pos.x, (int)pos.y);
         }
-        tex.Apply();
+
     }
 
     void Brush(int cx, int cy)
@@ -118,7 +119,7 @@ public class DrawSignature : MonoBehaviour
         if (tex == null) return;
 
         Texture2D copy = new Texture2D(tex.width, tex.height, tex.format, false);
-        copy.SetPixels(tex.GetPixels());
+        Graphics.CopyTexture(tex, copy);
         copy.Apply();
 
         DataStorage.Instance.signature = copy;
@@ -129,8 +130,7 @@ public class DrawSignature : MonoBehaviour
 
     public void SignatureData()
     {
-        DataStorage.Instance.SaveSignature(signatureTexture);
-
-        signaturePreview.texture = signatureTexture;
+        DataStorage.Instance.SaveSignature(tex);
+        signaturePreview.texture = tex;
     }
 }

@@ -31,13 +31,17 @@ public class DownloadQR : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        Texture2D tex = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        tex.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-        tex.Apply();
+        if (outcomeImage == null ||
+           outcomeImage.width != Screen.width ||
+           outcomeImage.height != Screen.height)
+        {
+            outcomeImage = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        }
 
-        outcomeImage = tex;
+        outcomeImage.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        outcomeImage.Apply();
 
-        byte[] png = tex.EncodeToPNG();
+        byte[] png = outcomeImage.EncodeToJPG(80);
 
         StartCoroutine(UploadImage(png));
 

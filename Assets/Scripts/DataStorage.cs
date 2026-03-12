@@ -45,14 +45,14 @@ public class DataStorage : MonoBehaviour
     public void SaveSignature(Texture2D tex)
     {
         signature = new Texture2D(tex.width, tex.height, tex.format, false);
-        signature.SetPixels(tex.GetPixels());
+        Graphics.CopyTexture(tex, signature);
         signature.Apply();
     }
 
     public void SaveLayout(Texture2D tex)
     {
-        LayOutData = new Texture2D(tex.width,tex.height, tex.format, false);
-        LayOutData.SetPixels(tex.GetPixels());
+        LayOutData = new Texture2D(tex.width, tex.height, tex.format, false);
+        Graphics.CopyTexture(tex, LayOutData);
         LayOutData.Apply();
     }
 }

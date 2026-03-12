@@ -33,7 +33,7 @@ public class PhotoCamera : MonoBehaviour
         }
 
         WebCamDevice device = WebCamTexture.devices[0];
-        webcamTexture = new WebCamTexture(device.name);
+        webcamTexture = new WebCamTexture(device.name, 1920, 1080, 30);
 
         rawImage.texture = webcamTexture;
             
@@ -72,8 +72,15 @@ public class PhotoCamera : MonoBehaviour
         if(webcamTexture == null || !webcamTexture.isPlaying) 
             return;
 
-        capturePhoto = new Texture2D(webcamTexture.width, webcamTexture.height, TextureFormat.RGB24, false);
-        Graphics.CopyTexture(capturePhoto, webcamTexture);
+        if (capturePhoto == null ||
+    capturePhoto.width != webcamTexture.width ||
+    capturePhoto.height != webcamTexture.height)
+        {
+            capturePhoto = new Texture2D(webcamTexture.width, webcamTexture.height, TextureFormat.RGB24, false);
+        }
+
+        Graphics.CopyTexture(webcamTexture, capturePhoto);
+        capturePhoto.Apply();
 
         DataStorage.Instance.photo = capturePhoto;
 
