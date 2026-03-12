@@ -71,10 +71,11 @@ public class PhotoCamera : MonoBehaviour
     {
         if(webcamTexture == null || !webcamTexture.isPlaying) 
             return;
-       
-        capturePhoto = new Texture2D(webcamTexture.width, webcamTexture.height);
-        capturePhoto.SetPixels(webcamTexture.GetPixels());
-        capturePhoto.Apply();
+
+        capturePhoto = new Texture2D(webcamTexture.width, webcamTexture.height, TextureFormat.RGB24, false);
+        Graphics.CopyTexture(capturePhoto, webcamTexture);
+
+        DataStorage.Instance.photo = capturePhoto;
 
         webcamTexture.Stop();
         rawImage.texture = capturePhoto;

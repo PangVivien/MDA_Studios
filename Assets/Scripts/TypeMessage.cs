@@ -51,4 +51,9 @@ public class TypeMessage : MonoBehaviour
         string[] words = text.Trim().Split(new char[] {' '}, System.StringSplitOptions.RemoveEmptyEntries);
         nextButton.SetActive(words.Length >= 1);
     }
+
+    public void SaveMessage()
+    {
+        DataStorage.Instance.message = messageInput.text;
+    }
 }

@@ -3,11 +3,21 @@ using UnityEngine;
 
 public class PrintPhoto : MonoBehaviour
 {
-    public PhotoCamera photoCamera;
-    public RawImage printImage;
+    public RawImage photoImage;
+    public AspectRatioFitter ratioFitter;
 
-    public void ShowPhoto()
+    void OnEnable()
     {
-        
+        if (DataStorage.Instance == null) return;
+        if (DataStorage.Instance.photo == this) return;
+
+        Texture2D photo = DataStorage.Instance.photo;
+
+        photoImage.texture = photo;
+
+        if (ratioFitter != null)
+        {
+            ratioFitter.aspectRatio = photo.width / photo.height;
+        }
     }
 }

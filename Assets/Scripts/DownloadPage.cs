@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class DownloadPage : MonoBehaviour
 {
-    [SerializeField] public GameObject dowmloadPanel;
-    [SerializeField] public GameObject LogoMDA;
+    [SerializeField] public GameObject downloadPanel;
+    [SerializeField] public GameObject buttonsPanel;
 
     public void OpenDownload()
     {
-        dowmloadPanel.SetActive(true);
-        LogoMDA.SetActive(true);
+        downloadPanel.SetActive(true);
+        buttonsPanel.SetActive(false);
     }
 
     public void CloseDownload()
     {
-        dowmloadPanel.SetActive(false);
-        LogoMDA.SetActive(false);   
+        downloadPanel.SetActive(false);
+        buttonsPanel.SetActive(true);
     }
 }

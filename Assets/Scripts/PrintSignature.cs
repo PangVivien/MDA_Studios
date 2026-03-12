@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PrintSignature : MonoBehaviour
 {
+    public RawImage previewSignature;
     public RawImage savedSignature;
 
     void OnEnable()
@@ -12,6 +13,7 @@ public class PrintSignature : MonoBehaviour
 
         if(DataStorage.Instance.signature != null)
         {
+            previewSignature.texture = DataStorage.Instance.signature;
             savedSignature.texture = DataStorage.Instance.signature;
             // savedSignature.SetNativeSize();
             Debug.Log("Signature Loaded");

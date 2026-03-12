@@ -4,17 +4,18 @@ using TMPro;
 public class PrintMessage : MonoBehaviour
 {
     public TMP_Text messageText;
+    public TMP_Text previewText;
 
     void OnEnable()
     {
-        if(messageText == null)
+        if (messageText && previewText == null)
         {
-            Debug.LogError("No Message Data.");
+            Debug.LogError("No Message Text assigned.");
             return;
         }
 
-        if(messageText != null)
-            messageText.text = DataStorage.Instance.message;
+        messageText.text = DataStorage.Instance.message ?? "";
+        previewText.text = DataStorage.Instance.message ?? "";
 
     }
 }

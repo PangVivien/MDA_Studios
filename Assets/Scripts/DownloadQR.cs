@@ -15,11 +15,15 @@ public class DownloadQR : MonoBehaviour
     public string imageURL;
 
     public GameObject[] hideObjects;
+    public GameObject[] showObjects;
 
     public void Download()
     {
+        foreach (var obj in showObjects)
+            obj.SetActive(true);
         foreach (var obj in hideObjects)
             obj.SetActive(false);
+       
         StartCoroutine(CaptureCoroutine());
     }
 
@@ -41,6 +45,8 @@ public class DownloadQR : MonoBehaviour
 
         foreach (var obj in hideObjects)
             obj.SetActive(true);
+        foreach (var obj in showObjects)
+            obj.SetActive(false);
     }
 
     IEnumerator UploadImage(byte[] pngData)

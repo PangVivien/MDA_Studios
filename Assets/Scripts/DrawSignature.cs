@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class DrawSignature : MonoBehaviour
 {
+    public RawImage signaturePreview;
+    private Texture2D signatureTexture;
+
     public RawImage drawImage;
     public RawImage printImage;
     public Color drawColor = Color.black;
@@ -122,5 +125,12 @@ public class DrawSignature : MonoBehaviour
 
         Debug.Log("Signature Saved");
 
+    }
+
+    public void SignatureData()
+    {
+        DataStorage.Instance.SaveSignature(signatureTexture);
+
+        signaturePreview.texture = signatureTexture;
     }
 }

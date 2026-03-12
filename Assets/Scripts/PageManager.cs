@@ -10,6 +10,7 @@ public class PageManager : MonoBehaviour
     public GameObject photoPage;
     public GameObject messagePage;
     public GameObject signaturePage;
+    public GameObject layoutPage;
     public GameObject printPage;
 
     private GameObject currentPage;
@@ -26,6 +27,7 @@ public class PageManager : MonoBehaviour
     public void GoToPhoto() => StartCoroutine(SwitchPage(photoPage));
     public void GoToMessage() => StartCoroutine(SwitchPage(messagePage));
     public void GoToSign() => StartCoroutine(SwitchPage(signaturePage));
+    public void GoToLayout() => StartCoroutine(SwitchPage(layoutPage));
     public void GoToPrint() => StartCoroutine(SwitchPage(printPage));
     public void GoToHome()
     {

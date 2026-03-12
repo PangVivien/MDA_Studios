@@ -9,12 +9,19 @@ public class DataStorage : MonoBehaviour
     public Texture2D signature;
     public Texture2D photo;
 
+    public Texture2D photoData;
+    public string messageData = "";
+    public Texture2D signatureData;
+    public Texture2D LayOutData;
+    public string uploadedURL;
+    
+
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            // DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -26,6 +33,13 @@ public class DataStorage : MonoBehaviour
     {
         message = "";
         photo = null;
+        signature = null;
+
+        messageData = null;
+        photoData = null;
+        signatureData = null;
+        LayOutData = null;
+        uploadedURL = null;
     }
 
     public void SaveSignature(Texture2D tex)
@@ -33,5 +47,12 @@ public class DataStorage : MonoBehaviour
         signature = new Texture2D(tex.width, tex.height, tex.format, false);
         signature.SetPixels(tex.GetPixels());
         signature.Apply();
+    }
+
+    public void SaveLayout(Texture2D tex)
+    {
+        LayOutData = new Texture2D(tex.width,tex.height, tex.format, false);
+        LayOutData.SetPixels(tex.GetPixels());
+        LayOutData.Apply();
     }
 }

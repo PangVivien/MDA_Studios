@@ -5,6 +5,7 @@ using TMPro;
 public class PrintDate : MonoBehaviour
 {
     public TMP_Text dateText;
+    public TMP_Text previewText;
     private int lastDay = -1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +26,7 @@ public class PrintDate : MonoBehaviour
     void UpdateDate()
     {
         DateTime now = DateTime.Now;
+        previewText.text = now.Day + DaySuffix(now.Day) + " . " + now.ToString("MMMM") + " . " + now.ToString("yyyy");
         dateText.text = now.Day + DaySuffix(now.Day) + " . " + now.ToString("MMMM") + " . " + now.ToString("yyyy");
         lastDay = now.Day;
     }
