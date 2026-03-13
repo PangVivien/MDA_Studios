@@ -50,10 +50,15 @@ public class DrawSignature : MonoBehaviour
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 drawImage.rectTransform, pos, null, out local );
 
-            Vector2 texPos = new Vector2(local.x + tex.width / 2, local.y + tex.height / 2);
+            Rect rect = drawImage.rectTransform.rect;
+
+            float x = (local.x - rect.x) / rect.width * tex.width;
+            float y = (local.y - rect.y) / rect.height * tex.height;
+
+            Vector2 texPos = new Vector2(x, y);
 
 
-            if(!drawing)
+            if (!drawing)
             {
                 lastPos = texPos;
                 drawing = true;
