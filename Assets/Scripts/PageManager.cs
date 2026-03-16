@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PageManager : MonoBehaviour
 {
@@ -91,5 +92,10 @@ public class PageManager : MonoBehaviour
 
         c.a = to;
         fadeImage.color = c;
+    }
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }

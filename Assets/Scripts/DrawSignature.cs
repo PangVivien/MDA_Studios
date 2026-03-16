@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class DrawSignature : MonoBehaviour
 {
     public RawImage signaturePreview;
     private Texture2D signatureTexture;
+    public TMP_Text nameInput;
 
     public RawImage drawImage;
     public RawImage printImage;
@@ -23,6 +25,14 @@ public class DrawSignature : MonoBehaviour
         {
             Erase();
         }
+
+        if (nameInput == null)
+        {
+            Debug.LogError("No Name Text.");
+            return;
+        }
+
+        nameInput.text = DataStorage.Instance.message ?? "";
     }
 
     void Start()

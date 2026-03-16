@@ -1895,6 +1895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 288412054}
   - component: {fileID: 288412058}
+  - component: {fileID: 288412057}
   - component: {fileID: 288412056}
   - component: {fileID: 288412055}
   - component: {fileID: 288412059}
@@ -1948,6 +1949,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288412053}
   m_CullTransparentMesh: 1
+--- !u!95 &288412057
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288412053}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87823fa65a5d5074eb4c8107a7bbfecb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &288412058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9641,7 +9664,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974076461}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!1 &975837157
 GameObject:
   m_ObjectHideFlags: 0
@@ -17408,7 +17431,7 @@ GameObject:
   - component: {fileID: 1694361504}
   - component: {fileID: 1694361503}
   m_Layer: 5
-  m_Name: Select
+  m_Name: Button_Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17493,6 +17516,18 @@ MonoBehaviour:
       - m_Target: {fileID: 386917076}
         m_TargetAssemblyTypeName: PageManager, Assembly-CSharp
         m_MethodName: GoToPrint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1801882114}
+        m_TargetAssemblyTypeName: ViewImage, Assembly-CSharp
+        m_MethodName: ResetView
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19360,6 +19395,11 @@ MonoBehaviour:
   - {fileID: 2048719031}
   - {fileID: 522624103}
   - {fileID: 1566963336}
+  layoutButtons:
+  - {fileID: 1600479640}
+  - {fileID: 1715767188}
+  - {fileID: 425426239}
+  - {fileID: 429754727}
 --- !u!114 &1801882114
 MonoBehaviour:
   m_ObjectHideFlags: 0

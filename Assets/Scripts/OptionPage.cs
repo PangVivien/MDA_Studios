@@ -10,10 +10,15 @@ public class OptionPage : MonoBehaviour
 
     GameObject currentOption;
 
+    [SerializeField] public GameObject subText;
+    [SerializeField] public GameObject selectButton;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ShowOption(option01);
+        subText.SetActive(true);
+        selectButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,6 +35,9 @@ public class OptionPage : MonoBehaviour
         option04.SetActive(false);
 
         selected.SetActive(true);
+        subText.SetActive(false);
+        selectButton.SetActive(true);
+
     }
 
     public void Option01() => ShowOption(option01);
