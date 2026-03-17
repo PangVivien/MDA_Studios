@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ public class PrintSignature : MonoBehaviour
 {
     // public RawImage previewSignature;
     public RawImage savedSignature;
+    public TMP_Text nameText;
 
     void OnEnable()
     {
@@ -21,6 +23,11 @@ public class PrintSignature : MonoBehaviour
         else
         {
             Debug.Log("No Signature");
+        }
+
+        if (DataStorage.Instance != null && nameText != null)
+        {
+            nameText.text = DataStorage.Instance.initials ?? "";
         }
     }
 

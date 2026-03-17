@@ -6,6 +6,7 @@ public class DataStorage : MonoBehaviour
     public static DataStorage Instance;
 
     public string message = "";
+    public string initials;
     public Texture2D signature;
     public Texture2D photo;
 
