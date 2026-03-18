@@ -11,6 +11,7 @@ public class QRGenerator : MonoBehaviour
     public DownloadQR download;
 
     [ContextMenu("Generate Random QR Code")]
+
     public void GenerateRandomQRCode()
     {
         string randomCode = System.Guid.NewGuid().ToString("N"); 

@@ -3,15 +3,15 @@ using UnityEngine.UI;
 
 public class LayOutSelect : MonoBehaviour
 {
-    public static LayOutSelect instance;
+    public static LayOutSelect layoutSelect;
 
     public GameObject[] layouts;
-    // public Button[] buttons;
+
     private int selectedLayout = -1;
 
     void Awake()
     {
-        instance = this;
+        layoutSelect = this;
     }
 
     void OnEnable()

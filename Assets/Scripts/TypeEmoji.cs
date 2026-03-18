@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class TypeEmoji : MonoBehaviour
@@ -23,6 +24,8 @@ public class TypeEmoji : MonoBehaviour
     {
         if (typeMessage == null) return;
 
+        OSKeyBoard.KeyBoard.blockKeyboard = true;
+
         int caret = typeMessage.stringPosition;
         string text = typeMessage.text;
 
@@ -36,5 +39,12 @@ public class TypeEmoji : MonoBehaviour
         typeMessage.Select();
         typeMessage.ActivateInputField();
         typeMessage.ForceLabelUpdate();
+
+        OSKeyBoard.KeyBoard.StartCoroutine(UnblockKeyboardNextFrame());
+    }
+    private IEnumerator UnblockKeyboardNextFrame()
+    {
+        yield return null;
+        OSKeyBoard.KeyBoard.blockKeyboard = false;
     }
 }

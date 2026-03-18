@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class DrawSignature : MonoBehaviour
 {
@@ -18,21 +19,30 @@ public class DrawSignature : MonoBehaviour
     Texture2D tex;
     Vector2 lastPos;
     bool drawing = false;
+    bool hasDarwn = false;
+
+    [SerializeField] private GameObject nextButton;
+    [SerializeField] private GameObject instruction;
 
     void OnEnable()
     {
-        if(tex != null)
+        hasDarwn = false;
+        nextButton.SetActive(false);
+        instruction.SetActive(true);
+
+        if (tex != null)
         {
             Erase();
         }
 
         if (nameInput == null)
         {
-            Debug.LogError("No Name Text.");
-            return;
+            nameInput.text = DataStorage.Instance.message ?? "";
+            // Debug.LogError("No Name Text.");
+
         }
 
-        nameInput.text = DataStorage.Instance.message ?? "";
+
     }
 
     void Start()
@@ -52,6 +62,7 @@ public class DrawSignature : MonoBehaviour
 
     void Update()
     {
+
         if(Pointer.current.press.isPressed)
         {
             Vector2 pos = Pointer.current.position.ReadValue();
@@ -95,6 +106,12 @@ public class DrawSignature : MonoBehaviour
             Brush((int)pos.x, (int)pos.y);
         }
 
+        if(!hasDarwn)
+        {
+            hasDarwn = true;
+            instruction.SetActive(false);
+            nextButton.SetActive(true);
+        }
     }
 
     void Brush(int cx, int cy)
@@ -117,15 +134,11 @@ public class DrawSignature : MonoBehaviour
 
     public void Erase()
     {
-        Color[] pixels = new Color[tex.width * tex.height];
+        ClearTexture();
 
-        for(int i = 0; i < pixels.Length; i++)
-            pixels[i] = Color.clear;
-
-        tex.SetPixels(pixels);
-        tex.Apply();
-
-        drawing = false;
+        hasDarwn = false;
+        nextButton.SetActive(false);
+        instruction.SetActive(true);
     }
 
     public void OnSubmit()
@@ -143,9 +156,23 @@ public class DrawSignature : MonoBehaviour
 
     }
 
+    void ClearTexture()
+    {
+        Color[] pixels = new Color[tex.width * tex.height];
+
+        for (int i = 0; i < pixels.Length; i++)
+            pixels[i] = Color.clear;
+
+        tex.SetPixels(pixels);
+        tex.Apply();
+
+        drawing = false;
+    }
+
     public void SignatureData()
     {
         DataStorage.Instance.SaveSignature(tex);
         signaturePreview.texture = tex;
     }
+
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class PageManager : MonoBehaviour
@@ -19,6 +20,9 @@ public class PageManager : MonoBehaviour
     public Image fadeImage;
     public float fadeDuration = 0.5f;
     private bool isFading = false;
+
+    public TMP_InputField messageInputField;
+    public TMP_InputField signatureInputField;
 
     private void Start()
     {
@@ -71,6 +75,15 @@ public class PageManager : MonoBehaviour
         if (target == photoPage && photoCamera != null)
             photoCamera.StartCamera();
 
+        if (target == messagePage)
+        {
+            GameManager.Instance.SetActiveTextBox(messageInputField);
+        }
+        else if (target == signaturePage)
+        {
+            GameManager.Instance.SetActiveTextBox(signatureInputField);
+        }
+
         // FADE OUT
         yield return StartCoroutine(Fade(1f, 0f));
 
@@ -94,8 +107,8 @@ public class PageManager : MonoBehaviour
         fadeImage.color = c;
     }
 
-    public void ResetScene()
+    public void ReloadScene()
     {
-        SceneManager.LoadScene(0);
+       
     }
 }
