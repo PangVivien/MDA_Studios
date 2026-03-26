@@ -11,8 +11,8 @@ public class OSKeyBoard : MonoBehaviour
     public GameObject hideKeyBoard;
     [SerializeField] private GameObject emojiBox;
     [SerializeField] private GameObject boxButton;
-    [SerializeField] private GameObject KeyBoardEmojiBox;
-    [SerializeField] private GameObject KeyBoardBoxButton;
+    // [SerializeField] private GameObject KeyBoardEmojiBox;
+    // [SerializeField] private GameObject KeyBoardBoxButton;
     public Animator keyboardAnimation;
 
     [HideInInspector] public bool blockKeyboard = false;
@@ -30,7 +30,7 @@ public class OSKeyBoard : MonoBehaviour
         if(hideKeyBoard == null)
             hideKeyBoard.SetActive(false);
 
-        if(KeyBoardBoxButton == null) KeyBoardBoxButton.SetActive(false);
+        // if(KeyBoardBoxButton == null) KeyBoardBoxButton.SetActive(false);
     }
 
     public void ShowKeyBoard(TMP_InputField input)
@@ -47,8 +47,8 @@ public class OSKeyBoard : MonoBehaviour
 
     public void HideKeyBoard()
     {
-        KeyBoardEmojiBox.SetActive(false);
-        KeyBoardBoxButton.SetActive(false);
+        // KeyBoardEmojiBox.SetActive(false);
+        // KeyBoardBoxButton.SetActive(false);
         hideKeyBoard.SetActive(false);
 
         boxButton.SetActive(true);
@@ -59,7 +59,7 @@ public class OSKeyBoard : MonoBehaviour
     IEnumerator EnableAnimation()
     {
         yield return new WaitForSeconds(0.8f);
-        KeyBoardBoxButton.SetActive(true);
+        // KeyBoardBoxButton.SetActive(true);
         hideKeyBoard.SetActive(true);
     }
 

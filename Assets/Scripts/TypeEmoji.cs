@@ -1,7 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
+
 using System.Collections;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TypeEmoji : MonoBehaviour
 {
@@ -22,6 +24,8 @@ public class TypeEmoji : MonoBehaviour
 
     public void InsertEmoji()
     {
+        GameObject selected = EventSystem.current.currentSelectedGameObject;
+
         if (typeMessage == null) return;
 
         OSKeyBoard.KeyBoard.blockKeyboard = true;

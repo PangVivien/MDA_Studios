@@ -9,6 +9,7 @@ public class PhotoCamera : MonoBehaviour
 {
     public RawImage rawImage;
     public Material greyScale;
+    // private Material defaultMaterial;
     private WebCamTexture webcamTexture;
 
     private Texture2D capturePhoto;
@@ -38,12 +39,15 @@ public class PhotoCamera : MonoBehaviour
             return;
         }
 
+        // defaultMaterial = rawImage.material;
+
         WebCamDevice device = WebCamTexture.devices[0];
         webcamTexture = new WebCamTexture(device.name, 1920, 1080, 30);
 
         rawImage.texture = webcamTexture;
-            
-        if(greyScale != null)
+
+        // Apply Grayscale in Preview
+        if (greyScale != null)
         {
             rawImage.material = greyScale;
             rawImage.material.mainTexture = webcamTexture;
@@ -109,8 +113,8 @@ public class PhotoCamera : MonoBehaviour
             return;
 
         if (capturePhoto == null ||
-    capturePhoto.width != webcamTexture.width ||
-    capturePhoto.height != webcamTexture.height)
+            capturePhoto.width != webcamTexture.width ||
+            capturePhoto.height != webcamTexture.height)
         {
             capturePhoto = new Texture2D(webcamTexture.width, webcamTexture.height, TextureFormat.RGB24, false);
         }
@@ -121,6 +125,9 @@ public class PhotoCamera : MonoBehaviour
         DataStorage.Instance.photo = capturePhoto;
 
         webcamTexture.Stop();
+
+        // rawImage.material = defaultMaterial;
+
         rawImage.texture = capturePhoto;
         // isCaptured = true;
 
@@ -136,6 +143,13 @@ public class PhotoCamera : MonoBehaviour
         }
 
         rawImage.texture = webcamTexture;
+
+        if (greyScale != null)
+        {
+            rawImage.material = greyScale;
+            rawImage.material.mainTexture = webcamTexture;
+        }
+
         webcamTexture.Play();  
         // isCaptured = false;
 
