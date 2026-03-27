@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 371eb6db4d0e44d42a20fdff3ad57593
+guid: 9e4d1e0db157c0f4ba5deaa4333ff0a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8687104030573352035
-    second: Updated_02 1_0
+      213: 9023490957820594085
+    second: 01_Photo03_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,17 +122,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Updated_02 1_0
+      name: 01_Photo03_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3837
-        height: 2163
+        width: 1159
+        height: 972
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9bafc219e4317780800000000000000
-      internalID: -8687104030573352035
+      spriteID: 5a788d6b731e93d70800000000000000
+      internalID: 9023490957820594085
       vertices: []
       indices: 
       edges: []
@@ -161,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Updated_02 1_0: -8687104030573352035
+      01_Photo03_0: 9023490957820594085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

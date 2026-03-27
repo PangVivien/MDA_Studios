@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class DrawSignature : MonoBehaviour
 {
-    public OSKeyBoard OSKeyBoard;
+    // public OSKeyBoard OSKeyBoard;
     public RawImage signaturePreview;
     private Texture2D signatureTexture;
     public TMP_Text nameInput;
@@ -86,8 +86,8 @@ public class DrawSignature : MonoBehaviour
                 drawing = true;
             }
 
-            if (OSKeyBoard != null)
-                OSKeyBoard.HideKeyBoard();
+            //if (OSKeyBoard != null)
+            //    OSKeyBoard.HideKeyBoard();
 
             DrawLine(lastPos, texPos);
             lastPos = texPos;
