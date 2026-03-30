@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 using Unity.VisualScripting;
 using TMPro;
+// using UnityEngine.iOS;
 
 public class PhotoCamera : MonoBehaviour
 {
@@ -30,8 +31,7 @@ public class PhotoCamera : MonoBehaviour
 
     public void StartCamera()
     {
-        if(rawImage == null)
-            rawImage = GetComponent<RawImage>();
+        if(rawImage == null) rawImage = GetComponent<RawImage>();
 
         if (WebCamTexture.devices.Length == 0)
         {
@@ -42,7 +42,15 @@ public class PhotoCamera : MonoBehaviour
         // defaultMaterial = rawImage.material;
 
         WebCamDevice device = WebCamTexture.devices[0];
-        webcamTexture = new WebCamTexture(device.name, 1920, 1080, 30);
+        for(int i = 0; i < WebCamTexture.devices.Length; i++)
+        {
+            if(WebCamTexture.devices[i].isFrontFacing)
+            {
+                device = WebCamTexture.devices[i];
+                break;
+            }
+        }
+        webcamTexture = new WebCamTexture(device.name, 1280, 720, 30);
 
         rawImage.texture = webcamTexture;
 
@@ -52,16 +60,20 @@ public class PhotoCamera : MonoBehaviour
             rawImage.material = greyScale;
             rawImage.material.mainTexture = webcamTexture;
         }
+        else
+        {
+            rawImage.material= null;
+        }
 
         // rawImage.uvRect = new Rect(1, 0, -1, 1);
         webcamTexture.Play();
         // isCaptured = false;
 
-        Invoke(nameof(SetCameraView), 0.2f);
+        Invoke(nameof(FitCameraToFrame), 0.2f);
 
-         //AspectRatioFitter fitter = rawImage.GetComponent<AspectRatioFitter>();
-         //if(fitter != null)
-         //    fitter.aspectRatio = (float)webcamTexture.width / webcamTexture.height;
+         // AspectRatioFitter fitter = rawImage.GetComponent<AspectRatioFitter>();
+         // if(fitter != null)
+         //     fitter.aspectRatio = (float)webcamTexture.width / webcamTexture.height;
 
     }
     public void StartCountdown()
@@ -109,8 +121,9 @@ public class PhotoCamera : MonoBehaviour
 
     public void CapturePhoto()
     {
-        if(webcamTexture == null || !webcamTexture.isPlaying) 
-            return;
+        if(webcamTexture == null || !webcamTexture.isPlaying) return;
+
+        webcamTexture.Pause();
 
         if (capturePhoto == null ||
             capturePhoto.width != webcamTexture.width ||
@@ -119,7 +132,8 @@ public class PhotoCamera : MonoBehaviour
             capturePhoto = new Texture2D(webcamTexture.width, webcamTexture.height, TextureFormat.RGB24, false);
         }
 
-        Graphics.CopyTexture(webcamTexture, capturePhoto);
+        // Graphics.CopyTexture(webcamTexture, capturePhoto);
+        capturePhoto.SetPixels(webcamTexture.GetPixels());
         capturePhoto.Apply();
 
         DataStorage.Instance.photo = capturePhoto;

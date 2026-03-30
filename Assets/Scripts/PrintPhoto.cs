@@ -4,20 +4,26 @@ using UnityEngine;
 public class PrintPhoto : MonoBehaviour
 {
     public RawImage photoImage;
-    public AspectRatioFitter ratioFitter;
+    //public AspectRatioFitter ratioFitter;
 
     void OnEnable()
     {
         if (DataStorage.Instance == null) return;
-        if (DataStorage.Instance.photo == this) return;
+        // if (DataStorage.Instance.photo == this) return;
 
         Texture2D photo = DataStorage.Instance.photo;
 
+        if (photo == null)
+        {
+            Debug.Log("No PhotoImage Found");
+            return;
+        }
+
         photoImage.texture = photo;
 
-        if (ratioFitter != null)
-        {
-            ratioFitter.aspectRatio = photo.width / photo.height;
-        }
+        //if (ratioFitter != null)
+        //{
+        //    ratioFitter.aspectRatio = photo.width / photo.height;
+        //}
     }
 }
