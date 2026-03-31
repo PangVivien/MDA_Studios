@@ -35,7 +35,7 @@ public class DataStorage : MonoBehaviour
         message = "";
         photo = null;
         signature = null;
-
+        initials = "";
         messageData = null;
         photoData = null;
         signatureData = null;

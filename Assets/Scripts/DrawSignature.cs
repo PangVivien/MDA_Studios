@@ -27,19 +27,33 @@ public class DrawSignature : MonoBehaviour
 
     void OnEnable()
     {
-        hasDarwn = false;
-        nextButton.SetActive(false);
-        instruction.SetActive(true);
+        if (nameInput != null)
+            nameInput.text = DataStorage.Instance.initials ?? "";
 
-        if (tex != null)
+        if (DataStorage.Instance.signature != null)
         {
-            Erase();
+            tex = DataStorage.Instance.signature; 
+            drawImage.texture = tex;
+
+            hasDarwn = true;
+            nextButton.SetActive(true);
+            instruction.SetActive(false);
+        }
+        else
+        {
+            hasDarwn = false;
+            nextButton.SetActive(false);
+            instruction.SetActive(true);
+
+            if (tex != null)
+            {
+                Erase();
+            }
         }
 
-        if (nameInput == null)
+
         {
-            nameInput.text = DataStorage.Instance.message ?? "";
-            // Debug.LogError("No Name Text.");
+
 
         }
 
@@ -63,6 +77,9 @@ public class DrawSignature : MonoBehaviour
 
     void Update()
     {
+        // if(Pointer.current == null) return;
+
+        // if(EventSystem.current.IsPointerOverGameObject()) return;
 
         if(Pointer.current.press.isPressed)
         {

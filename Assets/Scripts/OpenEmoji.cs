@@ -5,11 +5,16 @@ public class OpenEmoji : MonoBehaviour
     public GameObject emojiPanel;
     public GameObject keyboardEmoji;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
         emojiPanel.SetActive(false);
         keyboardEmoji.SetActive(false);
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
     }
 
     // Update is called once per frame

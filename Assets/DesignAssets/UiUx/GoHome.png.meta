@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bc3cc943cb5f87f4e9d3273223a3a501
+guid: e6911587029f3934d98600e9c0685bcc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1329414987414774863
-    second: GoBack 1_0
+      213: 2944981811487705097
+    second: GoHome_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,12 +139,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoBack 1_0
+      name: GoHome_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 27
-        width: 468
+        x: 29
+        y: 17
+        width: 624
         height: 624
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4420f333e7037210800000000000000
-      internalID: 1329414987414774863
+      spriteID: 90806b7ba5daed820800000000000000
+      internalID: 2944981811487705097
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GoBack 1_0: 1329414987414774863
+      GoHome_0: 2944981811487705097
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

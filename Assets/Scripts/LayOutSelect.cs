@@ -6,6 +6,7 @@ public class LayOutSelect : MonoBehaviour
     public static LayOutSelect layoutSelect;
 
     public GameObject[] layouts;
+    public GameObject selectButton;
 
     private int selectedLayout = -1;
 
@@ -44,6 +45,8 @@ public class LayOutSelect : MonoBehaviour
         {
             layouts[i].SetActive(i == selectedLayout);
         }
+
+        selectButton.SetActive(false);
     }
 
     private void ButtonStates()

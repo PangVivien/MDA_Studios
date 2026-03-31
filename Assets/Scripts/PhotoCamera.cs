@@ -14,6 +14,8 @@ public class PhotoCamera : MonoBehaviour
     private WebCamTexture webcamTexture;
 
     private Texture2D capturePhoto;
+    public Image fadeImage;
+    public float fadeDuration = 0.1f;
 
     // private bool isCaptured = false;
 
@@ -25,8 +27,16 @@ public class PhotoCamera : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCamera();
-        completeButton.SetActive(false);
+        if (DataStorage.Instance != null && DataStorage.Instance.photo != null)
+        {
+            rawImage.texture = DataStorage.Instance.photo;
+            completeButton.SetActive(true);
+        }
+        else
+        {
+            StartCamera();
+            completeButton.SetActive(false);
+        }
     }
 
     public void StartCamera()
@@ -113,10 +123,29 @@ public class PhotoCamera : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         countdownText.gameObject.SetActive(false);
+        yield return StartCoroutine(FlashBang(0f, 1f));
 
         CapturePhoto();
 
         isCounting = false;
+        yield return StartCoroutine(FlashBang(1f, 0f));
+    }
+
+    IEnumerator FlashBang(float from, float to)
+    {
+        float t = 0f;
+        Color c = fadeImage.color;
+
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            c.a = Mathf.Lerp(from, to, t / fadeDuration);
+            fadeImage.color = c;
+            yield return null;
+        }
+
+        c.a = to;
+        fadeImage.color = c;
     }
 
     public void CapturePhoto()

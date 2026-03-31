@@ -24,9 +24,20 @@ public class TypeMessage : MonoBehaviour
     }
 
     void OnEnable()
-    {   messageInput.text = "";
+    {
+        // messageInput.text = "";
+        // nextButton.SetActive(false);
         messageInput.textComponent.spriteAsset = emojiAssets;
-        nextButton.SetActive(false);
+
+        if (DataStorage.Instance != null && DataStorage.Instance.message != null)
+        {
+            messageInput.text = DataStorage.Instance.message ?? "";
+            nextButton.SetActive(true);
+        }
+        else
+        {
+            nextButton.SetActive(false);
+        }
 
         wordcountText.text = "0/" + maxCount;
         lastText = messageInput.text;

@@ -8,23 +8,46 @@ public class OptionPage : MonoBehaviour
     public GameObject option03;
     public GameObject option04;
 
-    GameObject currentOption;
+    public GameObject optionPage;
 
-    [SerializeField] public GameObject subText;
-    [SerializeField] public GameObject selectButton;
+    public GameObject subText;
+    public GameObject selectButton;
+    public GameObject otherButton;
+
+
+    private void OnEnable()
+    {
+        if (optionPage != null && optionPage.activeInHierarchy)
+        {
+            ResetDefault();
+        }
+        otherButton.SetActive(false);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ShowOption(option01);
-        subText.SetActive(true);
-        selectButton.SetActive(false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void ShowPrint()
+    {
+        otherButton.SetActive(true);
+        selectButton.SetActive(false);
+    }
+
+    public void ResetDefault()
+    {
+        ShowOption(option01);
+        subText.SetActive(true);
+        otherButton.SetActive(false);
+        selectButton.SetActive(false);
     }
 
     public void ShowOption(GameObject selected)
@@ -37,7 +60,7 @@ public class OptionPage : MonoBehaviour
         selected.SetActive(true);
         subText.SetActive(false);
         selectButton.SetActive(true);
-
+        otherButton.SetActive(false);
     }
 
     public void Option01() => ShowOption(option01);

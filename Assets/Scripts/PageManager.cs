@@ -75,6 +75,15 @@ public class PageManager : MonoBehaviour
         if (target == photoPage && photoCamera != null)
             photoCamera.StartCamera();
 
+        if (target == messagePage && messageInputField != null)
+        {
+            messageInputField.text = DataStorage.Instance.message;
+        }
+        if (target == signaturePage && signatureInputField !=null)
+        {
+            signatureInputField.text = DataStorage.Instance.initials;
+        }
+
         if (target == messagePage)
         {
             GameManager.Instance.SetActiveTextBox(messageInputField);

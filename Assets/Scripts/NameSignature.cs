@@ -8,10 +8,16 @@ public class NameSignature : MonoBehaviour
 
     void OnEnable()
     {
-        if(nameInput != null)
-            nameInput.text = "";
+        if (nameInput != null)
+            // nameInput.text = "";
+            nameInput.text = DataStorage.Instance.initials ?? "";
 
-        UpdateState();
+        nameInput.onValueChanged.AddListener(SaveName);
+    }
+
+    void OnDisable()
+    {
+        nameInput.onValueChanged.RemoveListener(SaveName);
     }
 
     void UpdateState()
@@ -20,9 +26,9 @@ public class NameSignature : MonoBehaviour
 
     }
 
-    public void SaveName()
+    public void SaveName(string value)
     {
         if(DataStorage.Instance != null)
-            DataStorage.Instance.initials = nameInput.text;
+            DataStorage.Instance.initials = value;
     }
 }
