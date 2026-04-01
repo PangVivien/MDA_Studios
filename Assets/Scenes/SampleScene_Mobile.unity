@@ -5753,7 +5753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.6902995}
+  m_AnchoredPosition: {x: 1.9999957, y: -9.690315}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &306168784
@@ -15955,9 +15955,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1801882113}
-        m_TargetAssemblyTypeName: LayOutSelect, Assembly-CSharp
-        m_MethodName: ApplyLayOut
+      - m_Target: {fileID: 1801882115}
+        m_TargetAssemblyTypeName: QRGenerator, Assembly-CSharp
+        m_MethodName: GenerateRandomQRCode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1801882116}
+        m_TargetAssemblyTypeName: DownloadQR, Assembly-CSharp
+        m_MethodName: Download
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15970,30 +15982,6 @@ MonoBehaviour:
       - m_Target: {fileID: 386917078}
         m_TargetAssemblyTypeName: DownloadPage, Assembly-CSharp
         m_MethodName: OpenDownload
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1801882111}
-        m_TargetAssemblyTypeName: DownloadQR, Assembly-CSharp
-        m_MethodName: Download
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1801882112}
-        m_TargetAssemblyTypeName: QRGenerator, Assembly-CSharp
-        m_MethodName: GenerateRandomQRCode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17096,9 +17084,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 386917078}
-        m_TargetAssemblyTypeName: DownloadPage, Assembly-CSharp
-        m_MethodName: OpenDownload
+      - m_Target: {fileID: 1801882115}
+        m_TargetAssemblyTypeName: QRGenerator, Assembly-CSharp
+        m_MethodName: GenerateRandomQRCode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17108,7 +17096,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1801882111}
+      - m_Target: {fileID: 1801882116}
         m_TargetAssemblyTypeName: DownloadQR, Assembly-CSharp
         m_MethodName: Download
         m_Mode: 1
@@ -17120,9 +17108,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1801882112}
-        m_TargetAssemblyTypeName: QRGenerator, Assembly-CSharp
-        m_MethodName: GenerateRandomQRCode
+      - m_Target: {fileID: 386917078}
+        m_TargetAssemblyTypeName: DownloadPage, Assembly-CSharp
+        m_MethodName: OpenDownload
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18552,7 +18540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 27}
+  m_AnchoredPosition: {x: 2, y: 18}
   m_SizeDelta: {x: 267.0732, y: 360.4577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1034270678
@@ -20360,7 +20348,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1801882112}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: QRGenerator, Assembly-CSharp
         m_MethodName: GenerateRandomQRCode
         m_Mode: 1
@@ -25296,7 +25284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.13757324, y: 143.30971}
+  m_AnchoredPosition: {x: 1.8624225, y: 134.3097}
   m_SizeDelta: {x: 751.9003, y: 254.0316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1483953206
@@ -31157,9 +31145,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1801882110}
   - component: {fileID: 1801882109}
+  - component: {fileID: 1801882115}
+  - component: {fileID: 1801882116}
   - component: {fileID: 1801882113}
-  - component: {fileID: 1801882112}
-  - component: {fileID: 1801882111}
   - component: {fileID: 1801882114}
   m_Layer: 0
   m_Name: DataManager
@@ -31204,47 +31192,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1801882111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801882107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422ce028a3ca0da4db3295cf9433822d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DownloadQR
-  qrGenerator: {fileID: 1801882112}
-  printArea: {fileID: 1773329793}
-  outcomeImage: {fileID: 0}
-  cloudName: dt2bk63bh
-  uploadImage: MDA_Studios
-  imageURL: 
-  hideObjects:
-  - {fileID: 1922461066}
-  - {fileID: 303145870}
-  - {fileID: 1011388067}
-  - {fileID: 288412053}
-  - {fileID: 38565497}
-  showObjects:
-  - {fileID: 542481939}
---- !u!114 &1801882112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801882107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494d2ef8f84f2534a94059af7f0ee461, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QRGenerator
-  QRCodeDisplay: {fileID: 306168784}
-  QRCodeSize: 256
-  download: {fileID: 1801882111}
 --- !u!114 &1801882113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31262,7 +31209,6 @@ MonoBehaviour:
   - {fileID: 2048719031}
   - {fileID: 522624103}
   - {fileID: 1566963336}
-  selectButton: {fileID: 1694361501}
 --- !u!114 &1801882114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31276,6 +31222,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ViewImage
   printables: {fileID: 542481939}
+--- !u!114 &1801882115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801882107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494d2ef8f84f2534a94059af7f0ee461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QRGenerator
+  QRCodeDisplay: {fileID: 306168784}
+  QRCodeSize: 256
+  download: {fileID: 1801882116}
+--- !u!114 &1801882116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801882107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422ce028a3ca0da4db3295cf9433822d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DownloadQR
+  qrGenerator: {fileID: 1801882115}
+  printArea: {fileID: 1773329793}
+  outcomeImage: {fileID: 0}
+  cloudName: dt2bk63bh
+  uploadImage: MDA_Studios
+  imageURL: 
+  hideObjects:
+  - {fileID: 303145870}
+  - {fileID: 1011388067}
+  - {fileID: 288412053}
+  - {fileID: 38565497}
+  showObjects:
+  - {fileID: 542481939}
 --- !u!1 &1806406252
 GameObject:
   m_ObjectHideFlags: 0

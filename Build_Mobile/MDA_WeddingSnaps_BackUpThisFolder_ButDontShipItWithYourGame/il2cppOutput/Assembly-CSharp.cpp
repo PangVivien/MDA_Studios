@@ -2705,7 +2705,6 @@ struct KeyboardController_t906085279346E08350BE5CFB6CEF0F5B35F7FB59  : public Mo
 struct LayOutSelect_t24FD5956A42F6002641D90A9D40D7407CF238E3A  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* ___layouts;
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___selectButton;
 	int32_t ___selectedLayout;
 };
 struct NameSignature_t89C60D26D0DA76C4FDAF25C141C6162F9B62AF75  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -7232,10 +7231,6 @@ IL_0022:
 		}
 	}
 	{
-		//<source_info:C:/Users/Vitamin/Documents/UnityWorks/MDA_Studios/Assets/Scripts/LayOutSelect.cs:49>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_10 = __this->___selectButton;
-		NullCheck(L_10);
-		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_10, (bool)0, NULL);
 		//<source_info:C:/Users/Vitamin/Documents/UnityWorks/MDA_Studios/Assets/Scripts/LayOutSelect.cs:50>
 		return;
 	}

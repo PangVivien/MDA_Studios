@@ -6,11 +6,11 @@ public class LayOutSelect : MonoBehaviour
     public static LayOutSelect layoutSelect;
 
     public GameObject[] layouts;
-    public GameObject selectButton;
+    // public GameObject selectButton;
 
     private int selectedLayout = -1;
 
-    void Awake()
+    void Awake() 
     {
         layoutSelect = this;
     }
@@ -46,7 +46,7 @@ public class LayOutSelect : MonoBehaviour
             layouts[i].SetActive(i == selectedLayout);
         }
 
-        selectButton.SetActive(false);
+        // selectButton.SetActive(false);
     }
 
     private void ButtonStates()

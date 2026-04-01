@@ -32927,7 +32927,6 @@ struct KeyboardController_t906085279346E08350BE5CFB6CEF0F5B35F7FB59  : public Mo
 struct LayOutSelect_t24FD5956A42F6002641D90A9D40D7407CF238E3A  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* ___layouts;
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___selectButton;
 	int32_t ___selectedLayout;
 };
 struct Light2DBase_t21E41B15B3A532090B53439B4E99AB1207263C26  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -43853,9 +43852,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8590[13] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8591[1] = 
 {
 	static_cast<int32_t>(offsetof(KeepSelection_t95B31A20151D2264A70AE46CC5A004C5EE2F642A, ___lastSelected)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8592[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8592[3] = 
 {
-	static_cast<int32_t>(offsetof(LayOutSelect_t24FD5956A42F6002641D90A9D40D7407CF238E3A_StaticFields, ___layoutSelect)),static_cast<int32_t>(offsetof(LayOutSelect_t24FD5956A42F6002641D90A9D40D7407CF238E3A, ___layouts)),static_cast<int32_t>(offsetof(LayOutSelect_t24FD5956A42F6002641D90A9D40D7407CF238E3A, ___selectButton)),static_cast<int32_t>(offsetof(LayOutSelect_t24FD5956A42F6002641D90A9D40D7407CF238E3A, ___selectedLayout)),};
+	static_cast<int32_t>(offsetof(LayOutSelect_t24FD5956A42F6002641D90A9D40D7407CF238E3A_StaticFields, ___layoutSelect)),static_cast<int32_t>(offsetof(LayOutSelect_t24FD5956A42F6002641D90A9D40D7407CF238E3A, ___layouts)),static_cast<int32_t>(offsetof(LayOutSelect_t24FD5956A42F6002641D90A9D40D7407CF238E3A, ___selectedLayout)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable8593[1] = 
 {
 	static_cast<int32_t>(offsetof(NameSignature_t89C60D26D0DA76C4FDAF25C141C6162F9B62AF75, ___nameInput)),};
