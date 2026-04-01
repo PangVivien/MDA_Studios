@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class OptionPage : MonoBehaviour
 {
+    public DraggablePhoto draggablePhoto1;
+    public DraggablePhoto draggablePhoto2;
+    public DraggablePhoto draggablePhoto3;
+    public DraggablePhoto draggablePhoto4;
+
     public GameObject option01;
     public GameObject option02;
     public GameObject option03;
@@ -10,9 +15,9 @@ public class OptionPage : MonoBehaviour
 
     public GameObject optionPage;
 
-    public GameObject subText;
+
     public GameObject selectButton;
-    public GameObject otherButton;
+    public GameObject editButton;
 
 
     private void OnEnable()
@@ -21,7 +26,7 @@ public class OptionPage : MonoBehaviour
         {
             ResetDefault();
         }
-        otherButton.SetActive(false);
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,18 +41,22 @@ public class OptionPage : MonoBehaviour
 
     }
 
-    public void ShowPrint()
+    public void ShowEdit()
     {
-        otherButton.SetActive(true);
-        selectButton.SetActive(false);
+        
     }
 
     public void ResetDefault()
     {
         ShowOption(option01);
-        subText.SetActive(true);
-        otherButton.SetActive(false);
+
         selectButton.SetActive(false);
+        editButton.SetActive(false);
+
+        draggablePhoto1.DisableDrag();
+        draggablePhoto2.DisableDrag();
+        draggablePhoto3.DisableDrag();
+        draggablePhoto4.DisableDrag();
     }
 
     public void ShowOption(GameObject selected)
@@ -58,9 +67,14 @@ public class OptionPage : MonoBehaviour
         option04.SetActive(false);
 
         selected.SetActive(true);
-        subText.SetActive(false);
+        
         selectButton.SetActive(true);
-        otherButton.SetActive(false);
+        editButton.SetActive(true);
+
+        draggablePhoto1.DisableDrag();
+        draggablePhoto2.DisableDrag();
+        draggablePhoto3.DisableDrag();
+        draggablePhoto4.DisableDrag();
     }
 
     public void Option01() => ShowOption(option01);

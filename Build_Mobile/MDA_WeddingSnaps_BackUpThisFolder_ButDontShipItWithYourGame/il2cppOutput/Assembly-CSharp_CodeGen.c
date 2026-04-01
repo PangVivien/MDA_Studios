@@ -62,6 +62,13 @@ extern void U3CUploadImageU3Ed__10_System_Collections_Generic_IEnumeratorU3CSyst
 extern void U3CUploadImageU3Ed__10_System_Collections_IEnumerator_Reset_mD82D6C14140261D9B555B7092D5E5771DAC07856 (void);
 extern void U3CUploadImageU3Ed__10_System_Collections_IEnumerator_get_Current_m2259321EF1758A81234872B2832B0CF66C2B4589 (void);
 extern void CloudinaryResponse__ctor_mCA0BC67CE03E7838A894CE02FBD45B55F81E8EFB (void);
+extern void DraggablePhoto_Awake_mD53B25AB3A2290AF40B7112333CE85229C651856 (void);
+extern void DraggablePhoto_OnEnable_m88EC364D39D245D17D27555DE0C8FBBC64A5FCBA (void);
+extern void DraggablePhoto_OnBeginDrag_m92D2FBA22988AF53B2723F1DC34B35C20CC4EB04 (void);
+extern void DraggablePhoto_OnDrag_m89D913C8759AB292704CD853DC2CB00CF2805307 (void);
+extern void DraggablePhoto_EnableDrag_mACFDBEA47A69B5F95821F70C0DF678D8248129DD (void);
+extern void DraggablePhoto_DisableDrag_m3091DAE6A0215523A6ECF9F4082A32BB5651770B (void);
+extern void DraggablePhoto__ctor_m8017AE2E6B6AA549ADA2E461F6DFCFE02F6D959E (void);
 extern void DrawSignature_OnEnable_m286853D5123E7618243BB57490751A97A2E8B6C6 (void);
 extern void DrawSignature_Start_mEAF4695528EFE2649064E0857144845F87E7ED70 (void);
 extern void DrawSignature_Update_m87A872F824A21ED25AB7E09CB15AA81EBA7BBF51 (void);
@@ -99,7 +106,7 @@ extern void OpenEmoji__ctor_m627063B24A88C1E6C0D982C9DB3F25C33DB9BD2E (void);
 extern void OptionPage_OnEnable_mC3B26EFFDD101DBEAD6E505F5D8AF6F3EF6C293B (void);
 extern void OptionPage_Start_m324FD426AA2B25DF3FFAF7B09B0252E67BF52209 (void);
 extern void OptionPage_Update_mDACFA6CEB75034217987B007903CCBC1F7D093BE (void);
-extern void OptionPage_ShowPrint_mE309B9179292B8926D2B72539F44AADFE1D925C5 (void);
+extern void OptionPage_ShowEdit_mC109A48BD421F6128E0B25A0A6AD65360EFAD950 (void);
 extern void OptionPage_ResetDefault_m7A7B2880F6BFF08A6CF455AA4230C7FC4A7DC1FE (void);
 extern void OptionPage_ShowOption_mC6EF005D77D7A1997AD67031D2A8BCED403AFE8E (void);
 extern void OptionPage_Option01_mE38DAC2965E844144C37F3D674CF0D970A76D9B9 (void);
@@ -233,7 +240,7 @@ extern void WhiteSignature_ShowNormalSignature_m3D31CFDF5A919F6E619301136F684848
 extern void WhiteSignature__ctor_m299127897D42831FD5C8499FF9636AFA3D16B192 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[226] = 
+static Il2CppMethodPointer s_methodPointers[233] = 
 {
 	ColorDataStore_Awake_m1C86F1B5A4A7109E9E1EE03F34F37A64E56F5633,
 	ColorDataStore_GetKeyboardBorderColor_m35052BDDC343DB14E05455C81EAC1FA40F801EE5,
@@ -290,6 +297,13 @@ static Il2CppMethodPointer s_methodPointers[226] =
 	U3CUploadImageU3Ed__10_System_Collections_IEnumerator_Reset_mD82D6C14140261D9B555B7092D5E5771DAC07856,
 	U3CUploadImageU3Ed__10_System_Collections_IEnumerator_get_Current_m2259321EF1758A81234872B2832B0CF66C2B4589,
 	CloudinaryResponse__ctor_mCA0BC67CE03E7838A894CE02FBD45B55F81E8EFB,
+	DraggablePhoto_Awake_mD53B25AB3A2290AF40B7112333CE85229C651856,
+	DraggablePhoto_OnEnable_m88EC364D39D245D17D27555DE0C8FBBC64A5FCBA,
+	DraggablePhoto_OnBeginDrag_m92D2FBA22988AF53B2723F1DC34B35C20CC4EB04,
+	DraggablePhoto_OnDrag_m89D913C8759AB292704CD853DC2CB00CF2805307,
+	DraggablePhoto_EnableDrag_mACFDBEA47A69B5F95821F70C0DF678D8248129DD,
+	DraggablePhoto_DisableDrag_m3091DAE6A0215523A6ECF9F4082A32BB5651770B,
+	DraggablePhoto__ctor_m8017AE2E6B6AA549ADA2E461F6DFCFE02F6D959E,
 	DrawSignature_OnEnable_m286853D5123E7618243BB57490751A97A2E8B6C6,
 	DrawSignature_Start_mEAF4695528EFE2649064E0857144845F87E7ED70,
 	DrawSignature_Update_m87A872F824A21ED25AB7E09CB15AA81EBA7BBF51,
@@ -327,7 +341,7 @@ static Il2CppMethodPointer s_methodPointers[226] =
 	OptionPage_OnEnable_mC3B26EFFDD101DBEAD6E505F5D8AF6F3EF6C293B,
 	OptionPage_Start_m324FD426AA2B25DF3FFAF7B09B0252E67BF52209,
 	OptionPage_Update_mDACFA6CEB75034217987B007903CCBC1F7D093BE,
-	OptionPage_ShowPrint_mE309B9179292B8926D2B72539F44AADFE1D925C5,
+	OptionPage_ShowEdit_mC109A48BD421F6128E0B25A0A6AD65360EFAD950,
 	OptionPage_ResetDefault_m7A7B2880F6BFF08A6CF455AA4230C7FC4A7DC1FE,
 	OptionPage_ShowOption_mC6EF005D77D7A1997AD67031D2A8BCED403AFE8E,
 	OptionPage_Option01_mE38DAC2965E844144C37F3D674CF0D970A76D9B9,
@@ -462,7 +476,7 @@ static Il2CppMethodPointer s_methodPointers[226] =
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 };
-static const int32_t s_InvokerIndices[226] = 
+static const int32_t s_InvokerIndices[233] = 
 {
 	16007,
 	27983,
@@ -518,6 +532,13 @@ static const int32_t s_InvokerIndices[226] =
 	15789,
 	16007,
 	15789,
+	16007,
+	16007,
+	16007,
+	11854,
+	11854,
+	16007,
+	16007,
 	16007,
 	16007,
 	16007,
@@ -695,7 +716,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	226,
+	233,
 	s_methodPointers,
 	0,
 	NULL,
