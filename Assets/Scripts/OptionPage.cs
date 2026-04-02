@@ -1,12 +1,12 @@
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OptionPage : MonoBehaviour
 {
-    public DraggablePhoto draggablePhoto1;
-    public DraggablePhoto draggablePhoto2;
-    public DraggablePhoto draggablePhoto3;
-    public DraggablePhoto draggablePhoto4;
+    // public MovablePhoto movablePhoto;
+
+    public GameObject editFunctions;
 
     public GameObject option01;
     public GameObject option02;
@@ -14,8 +14,7 @@ public class OptionPage : MonoBehaviour
     public GameObject option04;
 
     public GameObject optionPage;
-
-
+    // public GameObject previewPage;
     public GameObject selectButton;
     public GameObject editButton;
 
@@ -29,21 +28,14 @@ public class OptionPage : MonoBehaviour
 
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void ShowEdit()
     {
-        
+        editFunctions.SetActive(true);
+    }
+
+    public void CloseEdit()
+    {
+        editFunctions.SetActive(false);
     }
 
     public void ResetDefault()
@@ -52,12 +44,11 @@ public class OptionPage : MonoBehaviour
 
         selectButton.SetActive(false);
         editButton.SetActive(false);
+        
+        // previewPage.SetActive(true);
 
-        draggablePhoto1.DisableDrag();
-        draggablePhoto2.DisableDrag();
-        draggablePhoto3.DisableDrag();
-        draggablePhoto4.DisableDrag();
-    }
+        editFunctions.SetActive(false);
+}
 
     public void ShowOption(GameObject selected)
     {
@@ -67,14 +58,11 @@ public class OptionPage : MonoBehaviour
         option04.SetActive(false);
 
         selected.SetActive(true);
-        
+
         selectButton.SetActive(true);
         editButton.SetActive(true);
 
-        draggablePhoto1.DisableDrag();
-        draggablePhoto2.DisableDrag();
-        draggablePhoto3.DisableDrag();
-        draggablePhoto4.DisableDrag();
+        editFunctions.SetActive(false);
     }
 
     public void Option01() => ShowOption(option01);

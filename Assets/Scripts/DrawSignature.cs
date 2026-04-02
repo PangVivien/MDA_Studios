@@ -11,6 +11,7 @@ public class DrawSignature : MonoBehaviour
     public RawImage signaturePreview;
     private Texture2D signatureTexture;
     public TMP_Text nameInput;
+    public GameObject previewCard;
 
     public RawImage drawImage;
     public RawImage printImage;
@@ -174,7 +175,7 @@ public class DrawSignature : MonoBehaviour
         DataStorage.Instance.signature = copy;
 
         Debug.Log("Signature Saved");
-
+        previewCard.SetActive(true);
     }
 
     void ClearTexture()
