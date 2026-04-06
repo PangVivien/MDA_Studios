@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 using System.IO;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PreviewPostCard : MonoBehaviour
 {
@@ -14,9 +14,56 @@ public class PreviewPostCard : MonoBehaviour
     private Texture2D currentTexture;
     private string savePath;
 
+    [SerializeField] private bool rotatePreview = true;
+
     void Start()
     {
-        savePath = Path.Combine(Application.persistentDataPath,"preview.jpg");
+        savePath = Path.Combine(Application.persistentDataPath, "preview.jpg");
+    }
+    public void DoneButton()
+    {
+        StartCoroutine(CaptureAndPreview());
+    }
+
+    IEnumerator CaptureAndPreview()
+    {
+        yield return StartCoroutine(CaptureCoroutine());
+        ShowPreview();
+    }
+
+    public void ResetAll()
+    {
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+            Debug.Log("Deleted saved preview: " + savePath);
+        }
+
+        if (targetImage != null)
+        {
+            if (targetImage.texture != null && targetImage.texture != currentTexture)
+            {
+                Destroy(targetImage.texture);
+            }
+            targetImage.texture = null;
+            targetImage.uvRect = new Rect(0, 0, 1, 1); 
+        }
+
+        if (printImage != null)
+        {
+            if (printImage.texture != null && printImage.texture != currentTexture)
+            {
+                Destroy(printImage.texture);
+            }
+            printImage.texture = null;
+            printImage.uvRect = new Rect(0, 0, 1, 1); 
+        }
+
+        if (currentTexture != null)
+        {
+            Destroy(currentTexture);
+            currentTexture = null;
+        }
     }
 
     public void CapturePreview()
@@ -35,14 +82,21 @@ public class PreviewPostCard : MonoBehaviour
             Texture2D texture = new Texture2D(2, 2);
             texture.LoadImage(bytes);
 
-            targetImage.texture = texture;
-            if (printImage != null)
-                printImage.texture = texture;
+            Texture2D finalTexture = texture;
+            if (rotatePreview)
+            {
+                finalTexture = RotateTexture(texture);
+                Destroy(texture);
+            }
 
-            StartCoroutine(TextureAspectRatio(texture));
+            targetImage.texture = finalTexture;
+            if (printImage != null)
+                printImage.texture = finalTexture;
+
+            StartCoroutine(TextureAspectRatio(finalTexture));
 
             if (printImage != null)
-                StartCoroutine(PrintAspectRatio(texture));
+                StartCoroutine(PrintAspectRatio(finalTexture));
         }
     }
 
@@ -105,6 +159,7 @@ public class PreviewPostCard : MonoBehaviour
             targetImage.uvRect = uvRect;
         }
     }
+
     private Texture2D RotateTexture(Texture2D original)
     {
         int originalWidth = original.width;
@@ -119,8 +174,8 @@ public class PreviewPostCard : MonoBehaviour
         {
             for (int x = 0; x < originalWidth; x++)
             {
-                int newX = y;
-                int newY = (originalWidth - 1 - x);
+                int newX = originalHeight - 1 - y;
+                int newY = x;
                 rotatedPixels[newY * originalHeight + newX] = originalPixels[y * originalWidth + x];
             }
         }
@@ -201,8 +256,33 @@ public class PreviewPostCard : MonoBehaviour
     {
         if (printImage != null && targetImage != null && targetImage.texture != null)
         {
-            printImage.texture = targetImage.texture;
-            StartCoroutine(PrintAspectRatio((Texture2D)targetImage.texture));
+            Texture2D sourceTexture = (Texture2D)targetImage.texture;
+            Texture2D finalTexture = sourceTexture;
+
+            if (rotatePreview)
+            {
+                finalTexture = RotateTexture(sourceTexture);
+            }
+
+            printImage.texture = finalTexture;
+            StartCoroutine(PrintAspectRatio(finalTexture));
+        }
+    }
+
+    public void RotateCurrentPreview()
+    {
+        if (targetImage != null && targetImage.texture != null)
+        {
+            Texture2D currentTex = (Texture2D)targetImage.texture;
+            Texture2D rotatedTex = RotateTexture(currentTex);
+
+            targetImage.texture = rotatedTex;
+            if (printImage != null)
+                printImage.texture = rotatedTex;
+
+            StartCoroutine(TextureAspectRatio(rotatedTex));
+            if (printImage != null)
+                StartCoroutine(PrintAspectRatio(rotatedTex));
         }
     }
 }

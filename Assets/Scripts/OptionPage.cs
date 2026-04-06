@@ -6,8 +6,6 @@ public class OptionPage : MonoBehaviour
 {
     // public MovablePhoto movablePhoto;
 
-    public GameObject editFunctions;
-
     public GameObject option01;
     public GameObject option02;
     public GameObject option03;
@@ -28,16 +26,6 @@ public class OptionPage : MonoBehaviour
 
     }
 
-    public void ShowEdit()
-    {
-        editFunctions.SetActive(true);
-    }
-
-    public void CloseEdit()
-    {
-        editFunctions.SetActive(false);
-    }
-
     public void ResetDefault()
     {
         ShowOption(option01);
@@ -46,8 +34,6 @@ public class OptionPage : MonoBehaviour
         editButton.SetActive(false);
         
         // previewPage.SetActive(true);
-
-        editFunctions.SetActive(false);
 }
 
     public void ShowOption(GameObject selected)
@@ -61,8 +47,6 @@ public class OptionPage : MonoBehaviour
 
         selectButton.SetActive(true);
         editButton.SetActive(true);
-
-        editFunctions.SetActive(false);
     }
 
     public void Option01() => ShowOption(option01);

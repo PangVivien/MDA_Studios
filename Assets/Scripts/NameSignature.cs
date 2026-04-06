@@ -9,10 +9,18 @@ public class NameSignature : MonoBehaviour
     void OnEnable()
     {
         if (nameInput != null)
-            // nameInput.text = "";
-            nameInput.text = DataStorage.Instance.initials ?? "";
+        {
+            if (DataStorage.Instance != null && !string.IsNullOrEmpty(DataStorage.Instance.initials))
+            {
+                nameInput.text = DataStorage.Instance.initials;
+            }
+            else
+            {
+                nameInput.text = "";
+            }
 
-        nameInput.onValueChanged.AddListener(SaveName);
+            nameInput.onValueChanged.AddListener(SaveName);
+        }
     }
 
     void OnDisable()
@@ -22,13 +30,16 @@ public class NameSignature : MonoBehaviour
 
     void UpdateState()
     {
-        bool hasName = !string.IsNullOrWhiteSpace(nameInput.text);
+        // bool hasName = !string.IsNullOrWhiteSpace(nameInput.text);
 
     }
 
     public void SaveName(string value)
     {
-        if(DataStorage.Instance != null)
+        if (DataStorage.Instance != null)
+        {
             DataStorage.Instance.initials = value;
+            Debug.Log($"Name saved: {value}");
+        }
     }
 }

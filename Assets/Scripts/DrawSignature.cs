@@ -28,8 +28,11 @@ public class DrawSignature : MonoBehaviour
 
     void OnEnable()
     {
-        if (nameInput != null)
+        if (nameInput != null && DataStorage.Instance != null)
+        {
             nameInput.text = DataStorage.Instance.initials ?? "";
+            Debug.Log($"Loaded name: {DataStorage.Instance.initials}"); 
+        }
 
         if (DataStorage.Instance.signature != null)
         {
@@ -167,6 +170,12 @@ public class DrawSignature : MonoBehaviour
     {
 
         if (tex == null) return;
+
+        if (nameInput != null && DataStorage.Instance != null)
+        {
+            DataStorage.Instance.initials = nameInput.text;
+            Debug.Log($"Saved name on submit: {nameInput.text}");
+        }
 
         Texture2D copy = new Texture2D(tex.width, tex.height, tex.format, false);
         Graphics.CopyTexture(tex, copy);

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class DataStorage : MonoBehaviour
 {
