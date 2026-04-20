@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: ffdd4c11b7a0bcb4fb2a118d0af8ffb9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8198582956485127817
+    second: Scan QR to Download_0
+  - first:
+      213: -5194089866913581529
+    second: Scan QR to Download_1
+  - first:
+      213: 4612650579438295850
+    second: Scan QR to Download_2
+  - first:
+      213: 7557116357892410355
+    second: Scan QR to Download_3
+  - first:
+      213: -6223392434930152161
+    second: Scan QR to Download_4
+  - first:
+      213: -965477003217058925
+    second: Scan QR to Download_5
+  - first:
+      213: -8542328396483577637
+    second: Scan QR to Download_6
+  - first:
+      213: 6162362615715904139
+    second: Scan QR to Download_7
+  - first:
+      213: -3373779322764243378
+    second: Scan QR to Download_8
+  - first:
+      213: 7075129006922729669
+    second: Scan QR to Download_9
+  - first:
+      213: -6760113270314057755
+    second: Scan QR to Download_10
+  - first:
+      213: 2829296474691457614
+    second: Scan QR to Download_11
+  - first:
+      213: -2983444043712008816
+    second: Scan QR to Download_12
+  - first:
+      213: 4967121577940227127
+    second: Scan QR to Download_13
+  - first:
+      213: 5826569613249947075
+    second: Scan QR to Download_14
+  - first:
+      213: -3438036432658466759
+    second: Scan QR to Download_15
+  - first:
+      213: -8624965205515781237
+    second: Scan QR to Download_16
+  - first:
+      213: -1206937521881145141
+    second: Scan QR to Download_17
+  - first:
+      213: -3004865285023790475
+    second: Scan QR to Download_18
+  - first:
+      213: 9155737659688791113
+    second: Scan QR to Download_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Scan QR to Download_0
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 106
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98e2edec2c737c170800000000000000
+      internalID: 8198582956485127817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 106
+        width: 10
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 726f82719c2eae7b0800000000000000
+      internalID: -5194089866913581529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 68
+        width: 36
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2b5b6c534d630040800000000000000
+      internalID: 4612650579438295850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_3
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 68
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb8876c94540e860800000000000000
+      internalID: 7557116357892410355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_4
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 68
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1d822aad8112a9a0800000000000000
+      internalID: -6223392434930152161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_5
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 69
+        width: 40
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3934078e7cfe992f0800000000000000
+      internalID: -965477003217058925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_6
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 65
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd83dd4259d837980800000000000000
+      internalID: -8542328396483577637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_7
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 69
+        width: 39
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ab4ee362c158550800000000000000
+      internalID: 6162362615715904139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_8
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 69
+        width: 24
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e441cb49ded21d0800000000000000
+      internalID: -3373779322764243378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_9
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 68
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c801bd9858ef2260800000000000000
+      internalID: 7075129006922729669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_10
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 69
+        width: 51
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5efb6891cc04f22a0800000000000000
+      internalID: -6760113270314057755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_11
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 68
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e42df3a472ea34720800000000000000
+      internalID: 2829296474691457614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_12
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 69
+        width: 68
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09d6a4ff27da896d0800000000000000
+      internalID: -2983444043712008816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_13
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 69
+        width: 40
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7341e4912c2cee440800000000000000
+      internalID: 4967121577940227127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_14
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 69
+        width: 8
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c529d851322cd050800000000000000
+      internalID: 5826569613249947075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_15
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 68
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9387a8a7414a940d0800000000000000
+      internalID: -3438036432658466759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_16
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 68
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8bb025b7d7fd4880800000000000000
+      internalID: -8624965205515781237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 68
+        width: 47
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc02f2ee7b8104fe0800000000000000
+      internalID: -1206937521881145141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_18
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 106
+        width: 10
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a014891f29c46d0800000000000000
+      internalID: -3004865285023790475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scan QR to Download_19
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 106
+        width: 10
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94caa6e64e6bf0f70800000000000000
+      internalID: 9155737659688791113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Scan QR to Download_0: 8198582956485127817
+      Scan QR to Download_1: -5194089866913581529
+      Scan QR to Download_10: -6760113270314057755
+      Scan QR to Download_11: 2829296474691457614
+      Scan QR to Download_12: -2983444043712008816
+      Scan QR to Download_13: 4967121577940227127
+      Scan QR to Download_14: 5826569613249947075
+      Scan QR to Download_15: -3438036432658466759
+      Scan QR to Download_16: -8624965205515781237
+      Scan QR to Download_17: -1206937521881145141
+      Scan QR to Download_18: -3004865285023790475
+      Scan QR to Download_19: 9155737659688791113
+      Scan QR to Download_2: 4612650579438295850
+      Scan QR to Download_3: 7557116357892410355
+      Scan QR to Download_4: -6223392434930152161
+      Scan QR to Download_5: -965477003217058925
+      Scan QR to Download_6: -8542328396483577637
+      Scan QR to Download_7: 6162362615715904139
+      Scan QR to Download_8: -3373779322764243378
+      Scan QR to Download_9: 7075129006922729669
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
