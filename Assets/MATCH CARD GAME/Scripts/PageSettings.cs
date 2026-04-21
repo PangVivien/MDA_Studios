@@ -21,12 +21,17 @@ public class PageSettings : MonoBehaviour
     public float fadeDuration = 0.5f;
     private bool isFading = false;
 
-    [Header("Game References")]
-    public GameObject[] allCards; 
-    public TextMeshProUGUI countdownText; 
+    [Header("Game Settings")]
+    public GameObject[] allCards;
+    public TextMeshProUGUI countdownText;
+    public TextMeshProUGUI gameCountdownText;
+    public GameObject StartText;
+    public GameObject GameText;
 
     private FlipCard[] cardScripts;
     private int cardsFlippedCount = 0;
+    private bool isGameTimerRunning = false;
+    private float gameTimer = 60f;
 
     void Start()
     {
@@ -50,6 +55,26 @@ public class PageSettings : MonoBehaviour
         ShowPage(homePage);
     }
 
+    void Update()
+    {
+        if (isGameTimerRunning)
+        {
+            gameTimer -= Time.deltaTime;
+
+            if (gameCountdownText != null)
+            {
+                int seconds = Mathf.CeilToInt(gameTimer);
+                gameCountdownText.text = seconds.ToString("D2");
+            }
+
+            if (gameTimer <= 0f)
+            {
+                isGameTimerRunning = false;
+                GoToLose();
+            }
+        }
+    }
+
     public void GoToInstruction() => StartCoroutine(SwitchPage(instructionPage));
     public void GoToGame() => StartCoroutine(SwitchPage(gamePage));
     public void GoToWin() => StartCoroutine(SwitchPage(winPage));
@@ -62,18 +87,20 @@ public class PageSettings : MonoBehaviour
 
         if (cardsFlippedCount >= allCards.Length)
         {
+            isGameTimerRunning = false;
             StartCoroutine(WinWithDelay());
         }
     }
 
     public void CardFlipped(bool isNowFront)
     {
-        if (!isNowFront) return; 
+        if (!isNowFront) return;
 
         cardsFlippedCount++;
 
         if (cardsFlippedCount >= allCards.Length)
         {
+            isGameTimerRunning = false;
             StartCoroutine(WinWithDelay());
         }
     }
@@ -81,6 +108,8 @@ public class PageSettings : MonoBehaviour
     public void ResetAllCards()
     {
         cardsFlippedCount = 0;
+        gameTimer = 60f;
+        isGameTimerRunning = false;
 
         foreach (var card in allCards)
         {
@@ -106,7 +135,13 @@ public class PageSettings : MonoBehaviour
     {
         if (countdownText != null)
         {
+            GameText.SetActive(false);
+            StartText.SetActive(true);
             countdownText.gameObject.SetActive(true);
+            countdownText.text = "05";
+            yield return new WaitForSeconds(1f);
+            countdownText.text = "04";
+            yield return new WaitForSeconds(1f);
             countdownText.text = "03";
             yield return new WaitForSeconds(1f);
             countdownText.text = "02";
@@ -116,8 +151,18 @@ public class PageSettings : MonoBehaviour
             countdownText.text = "GO";
             yield return new WaitForSeconds(0.5f);
             countdownText.gameObject.SetActive(false);
+            StartText.SetActive(false);
+            GameText.SetActive(true);
         }
 
+        if (gameCountdownText != null)
+        {
+            gameCountdownText.gameObject.SetActive(true);
+            gameCountdownText.text = "60";
+        }
+
+        gameTimer = 60f;
+        isGameTimerRunning = true;
         EnableCardClicks(true);
     }
 
@@ -146,11 +191,21 @@ public class PageSettings : MonoBehaviour
         {
             ResetAllCards();
             EnableCardClicks(false);
+            if (gameCountdownText != null)
+                gameCountdownText.gameObject.SetActive(false);
             StartCoroutine(StartGameWithCountdown());
         }
         else if (target == winPage || target == losePage)
         {
-            // Optional: Play WIN/LOSE Animation
+            if (gameCountdownText != null)
+                gameCountdownText.gameObject.SetActive(false);
+            isGameTimerRunning = false;
+        }
+        else if (target == homePage)
+        {
+            if (gameCountdownText != null)
+                gameCountdownText.gameObject.SetActive(false);
+            isGameTimerRunning = false;
         }
     }
 
