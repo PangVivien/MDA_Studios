@@ -4,52 +4,48 @@ using System;
 
 public class FlipCard : MonoBehaviour
 {
-    public GameObject backSide;   
-    public GameObject frontSide;  
-    public float flipDuration = 0.2f; 
+    public GameObject backSide;
+    public GameObject frontSide;
+    public float flipDuration = 0.2f;
+    public int cardID;
 
     private bool isFrontVisible = false;
     private bool isAnimating = false;
-    private Button button;
 
-    public event Action cardOpened;
+    public Action<FlipCard> CardClicked;
 
     void Start()
     {
-        button = GetComponent<Button>();
-        if (button != null)
-            button.onClick.AddListener(CardClick);
+        // GetComponent<Button>().onClick.AddListener(OnClick);
 
         backSide.SetActive(true);
         frontSide.SetActive(false);
     }
-
-    public void CardClick()
+    void OnClick()
     {
-        if (isAnimating) return;
-        if (isFrontVisible) return;
+        if (isAnimating || isFrontVisible) return;
 
-        if (flipDuration > 0)
-            StartCoroutine(FlipWithScale());
-        else
-            ToggleImmediate();
+        CardClicked?.Invoke(this);
     }
 
-    void ToggleImmediate()
+    public void ShowFront()
     {
-        isFrontVisible = !isFrontVisible;
-        backSide.SetActive(!isFrontVisible);
-        frontSide.SetActive(isFrontVisible);
-
-        cardOpened?.Invoke();
+        if (isAnimating || isFrontVisible) return;
+        StartCoroutine(Flip(true));
+    }
+    public void ShowBack()
+    {
+        if (isAnimating || !isFrontVisible) return;
+        StartCoroutine(Flip(false));
     }
 
-    System.Collections.IEnumerator FlipWithScale()
+    System.Collections.IEnumerator Flip(bool showFront)
     {
         isAnimating = true;
 
         float elapsed = 0f;
         Vector3 originalScale = transform.localScale;
+
         while (elapsed < flipDuration / 2f)
         {
             elapsed += Time.deltaTime;
@@ -59,10 +55,9 @@ public class FlipCard : MonoBehaviour
             yield return null;
         }
 
-        isFrontVisible = true;
-        backSide.SetActive(false);
-        frontSide.SetActive(true);
-        cardOpened?.Invoke();
+        isFrontVisible = showFront;
+        backSide.SetActive(!showFront);
+        frontSide.SetActive(showFront);
 
         elapsed = 0f;
         while (elapsed < flipDuration / 2f)
@@ -89,4 +84,5 @@ public class FlipCard : MonoBehaviour
             frontSide.SetActive(false);
         }
     }
+
 }

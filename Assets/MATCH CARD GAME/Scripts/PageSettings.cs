@@ -1,9 +1,9 @@
+using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
 
 public class PageSettings : MonoBehaviour
 {
@@ -27,6 +27,7 @@ public class PageSettings : MonoBehaviour
     public TextMeshProUGUI gameCountdownText;
     public GameObject StartText;
     public GameObject GameText;
+    public GameObject Cover;
 
     private FlipCard[] cardScripts;
     private int cardsFlippedCount = 0;
@@ -35,21 +36,12 @@ public class PageSettings : MonoBehaviour
 
     void Start()
     {
-        if (allCards.Length > 0)
-        {
-            cardScripts = new FlipCard[allCards.Length];
-            for (int i = 0; i < allCards.Length; i++)
-            {
-                if (allCards[i] != null)
-                {
-                    cardScripts[i] = allCards[i].GetComponent<FlipCard>();
+        MatchManager matchManager = FindObjectOfType<MatchManager>();
 
-                    if (cardScripts[i] != null)
-                    {
-                        cardScripts[i].cardOpened += CardOpened;
-                    }
-                }
-            }
+        foreach (var obj in allCards)
+        {
+            var card = obj.GetComponent<FlipCard>();
+            card.CardClicked += matchManager.CardClicked;
         }
 
         ShowPage(homePage);
@@ -133,10 +125,19 @@ public class PageSettings : MonoBehaviour
 
     private IEnumerator StartGameWithCountdown()
     {
+        GameText.SetActive(false);
+        StartText.SetActive(true);
+
+        foreach (var obj in allCards)
+        {
+            obj.GetComponent<FlipCard>().ShowFront();
+        }
+
+        yield return new WaitForSeconds(0.35f);
+
         if (countdownText != null)
         {
-            GameText.SetActive(false);
-            StartText.SetActive(true);
+            Cover.SetActive(true);
             countdownText.gameObject.SetActive(true);
             countdownText.text = "05";
             yield return new WaitForSeconds(1f);
@@ -153,6 +154,12 @@ public class PageSettings : MonoBehaviour
             countdownText.gameObject.SetActive(false);
             StartText.SetActive(false);
             GameText.SetActive(true);
+            Cover.SetActive(false);
+        }
+
+        foreach (var obj in allCards)
+        {
+            obj.GetComponent<FlipCard>().ShowBack();
         }
 
         if (gameCountdownText != null)
