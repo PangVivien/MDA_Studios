@@ -320,13 +320,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220789780}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 220789780}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 133539327}
   - component: {fileID: 133539326}
   - component: {fileID: 133539325}
+  - component: {fileID: 133539328}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -553,7 +554,7 @@ RectTransform:
   m_GameObject: {fileID: 133539323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.809, y: 2.809, z: 2.809}
+  m_LocalScale: {x: 2.97445, y: 2.97445, z: 2.97445}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1749122286}
@@ -583,7 +584,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -611,6 +612,18 @@ MonoBehaviour:
       - m_Target: {fileID: 770183143}
         m_TargetAssemblyTypeName: PageSettings, Assembly-CSharp
         m_MethodName: GoToGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1375402239}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -658,6 +671,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133539323}
   m_CullTransparentMesh: 1
+--- !u!95 &133539328
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133539323}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b93711aefe63b34694e9cbda3ee0af3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &154178323
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +725,7 @@ RectTransform:
   m_Children:
   - {fileID: 811467285}
   - {fileID: 1949489447}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -711,7 +746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 811467281}
   frontSide: {fileID: 1949489446}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 4
 --- !u!222 &154178326
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1072,11 +1108,11 @@ RectTransform:
   m_Children:
   - {fileID: 90834725}
   - {fileID: 1272990946}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -116, y: -235}
+  m_AnchoredPosition: {x: -115.99997, y: -235}
   m_SizeDelta: {x: 70.8857, y: 90.7643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220789780
@@ -1093,7 +1129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 90834721}
   frontSide: {fileID: 1272990945}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 3
 --- !u!222 &220789781
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1395,13 +1432,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 827250009}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 827250009}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1477,7 +1514,7 @@ RectTransform:
   m_Children:
   - {fileID: 1892060640}
   - {fileID: 1631169401}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1498,7 +1535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 1892060636}
   frontSide: {fileID: 1631169400}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 5
 --- !u!222 &294979660
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1539,11 +1577,11 @@ RectTransform:
   m_Children:
   - {fileID: 1089590974}
   - {fileID: 848016919}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -116, y: -540}
+  m_AnchoredPosition: {x: -115.99997, y: -540}
   m_SizeDelta: {x: 70.8857, y: 90.7643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &310597953
@@ -1560,7 +1598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 1089590970}
   frontSide: {fileID: 848016918}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 3
 --- !u!222 &310597954
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1580,8 +1619,9 @@ GameObject:
   - component: {fileID: 334683467}
   - component: {fileID: 334683469}
   - component: {fileID: 334683468}
+  - component: {fileID: 334683470}
   m_Layer: 5
-  m_Name: WIN _Sticker
+  m_Name: LOSE _Sticker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1598,7 +1638,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.54938, y: 1.54938, z: 1.54938}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1040645705}
   m_Father: {fileID: 978319216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1644,6 +1685,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334683466}
   m_CullTransparentMesh: 1
+--- !u!95 &334683470
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334683466}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cc0c1fe7a7902040b8e00325da35dc7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &364705427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,13 +1770,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 404309822}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 404309822}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1839,13 +1902,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1559928720}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1559928720}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1940,7 +2003,7 @@ RectTransform:
   m_Children:
   - {fileID: 364705431}
   - {fileID: 1429354671}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1961,7 +2024,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 364705427}
   frontSide: {fileID: 1429354670}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 4
 --- !u!222 &404309823
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2052,13 +2116,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1256865388}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1256865388}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2134,7 +2198,7 @@ RectTransform:
   m_Children:
   - {fileID: 1384676555}
   - {fileID: 1002409345}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -2155,7 +2219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 1384676551}
   frontSide: {fileID: 1002409344}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 5
 --- !u!222 &436144551
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2227,13 +2292,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 590874307}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 590874307}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2359,13 +2424,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2040677918}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2040677918}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2427,6 +2492,81 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 45.9}
   m_SizeDelta: {x: 70.8857, y: 90.7643}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &547874849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547874852}
+  - component: {fileID: 547874851}
+  - component: {fileID: 547874850}
+  m_Layer: 5
+  m_Name: CoverArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &547874850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547874849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &547874851
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547874849}
+  m_CullTransparentMesh: 1
+--- !u!224 &547874852
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547874849}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10.771428, y: 10.771428, z: 10.771428}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1942164882}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -141}
+  m_SizeDelta: {x: 100, y: 113.0943}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &551393905
 GameObject:
@@ -2491,13 +2631,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1728673976}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1728673976}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2642,13 +2782,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2040677918}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2040677918}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2774,13 +2914,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1728673976}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1728673976}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2856,11 +2996,11 @@ RectTransform:
   m_Children:
   - {fileID: 477491155}
   - {fileID: 1607690483}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -351.6895, y: -235}
+  m_AnchoredPosition: {x: -351.68948, y: -235}
   m_SizeDelta: {x: 70.8857, y: 90.7643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &590874306
@@ -2885,7 +3025,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 477491151}
   frontSide: {fileID: 1607690482}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 1
 --- !u!1 &648549041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,7 +3059,7 @@ RectTransform:
   m_Children:
   - {fileID: 1628149678}
   - {fileID: 821295995}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -2939,7 +3080,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 1628149674}
   frontSide: {fileID: 821295994}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 7
 --- !u!222 &648549044
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3094,6 +3236,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698671211}
   m_CullTransparentMesh: 1
+--- !u!1 &712089821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712089822}
+  m_Layer: 5
+  m_Name: ALL CARDS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &712089822
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712089821}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1256865387}
+  - {fileID: 997001184}
+  - {fileID: 590874303}
+  - {fileID: 1728673972}
+  - {fileID: 1899858432}
+  - {fileID: 1559928719}
+  - {fileID: 220789779}
+  - {fileID: 310597952}
+  - {fileID: 404309821}
+  - {fileID: 154178324}
+  - {fileID: 294979658}
+  - {fileID: 436144549}
+  - {fileID: 1432607714}
+  - {fileID: 2040677917}
+  - {fileID: 648549042}
+  - {fileID: 827250008}
+  m_Father: {fileID: 1942164882}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000022888184, y: 0.000011920929}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &747518512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,6 +3617,7 @@ MonoBehaviour:
   gameCountdownText: {fileID: 192250063}
   StartText: {fileID: 1944291089}
   GameText: {fileID: 1282679139}
+  Cover: {fileID: 547874849}
 --- !u!4 &770183144
 Transform:
   m_ObjectHideFlags: 0
@@ -3502,13 +3696,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154178325}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 154178325}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3653,13 +3847,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 648549043}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 648549043}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3810,7 +4004,7 @@ RectTransform:
   m_Children:
   - {fileID: 2096479137}
   - {fileID: 286200166}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3831,7 +4025,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 2096479133}
   frontSide: {fileID: 286200165}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 7
 --- !u!222 &827250010
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3922,13 +4117,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 310597953}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 310597953}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4117,6 +4312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 875662202}
+  - component: {fileID: 875662203}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4139,6 +4335,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &875662203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875662201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a092830494d03bb4d9bfc4dc01db6503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MatchManager
+  firstCard: {fileID: 0}
+  secondCard: {fileID: 0}
+  totalPairs: 8
+  pageSettings: {fileID: 770183143}
 --- !u!1 &888857026
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,13 +4414,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1899858436}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1899858436}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4282,6 +4494,7 @@ GameObject:
   - component: {fileID: 915234474}
   - component: {fileID: 915234476}
   - component: {fileID: 915234475}
+  - component: {fileID: 915234477}
   m_Layer: 5
   m_Name: WIN _Sticker
   m_TagString: Untagged
@@ -4300,7 +4513,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.54938, y: 1.54938, z: 1.54938}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1941711679}
   m_Father: {fileID: 1600410060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4321,7 +4535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.98039216}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4346,6 +4560,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915234473}
   m_CullTransparentMesh: 1
+--- !u!95 &915234477
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915234473}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6706be8ae6329a49ba9087169d9954f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &917449057
 GameObject:
   m_ObjectHideFlags: 0
@@ -4358,6 +4594,7 @@ GameObject:
   - component: {fileID: 917449061}
   - component: {fileID: 917449060}
   - component: {fileID: 917449059}
+  - component: {fileID: 917449062}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -4404,7 +4641,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4432,6 +4669,30 @@ MonoBehaviour:
       - m_Target: {fileID: 770183143}
         m_TargetAssemblyTypeName: PageSettings, Assembly-CSharp
         m_MethodName: GoToHome
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: ResetGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1375402239}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4479,6 +4740,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917449057}
   m_CullTransparentMesh: 1
+--- !u!95 &917449062
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917449057}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b93711aefe63b34694e9cbda3ee0af3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &933071270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,6 +4774,7 @@ GameObject:
   - component: {fileID: 933071274}
   - component: {fileID: 933071273}
   - component: {fileID: 933071272}
+  - component: {fileID: 933071275}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -4537,7 +4821,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4565,6 +4849,30 @@ MonoBehaviour:
       - m_Target: {fileID: 770183143}
         m_TargetAssemblyTypeName: PageSettings, Assembly-CSharp
         m_MethodName: GoToHome
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: ResetGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1375402239}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4612,6 +4920,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933071270}
   m_CullTransparentMesh: 1
+--- !u!95 &933071275
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933071270}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b93711aefe63b34694e9cbda3ee0af3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &978319215
 GameObject:
   m_ObjectHideFlags: 0
@@ -4642,7 +4972,6 @@ RectTransform:
   m_Children:
   - {fileID: 1640268361}
   - {fileID: 334683467}
-  - {fileID: 1040645705}
   - {fileID: 933071271}
   m_Father: {fileID: 158631363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4662,6 +4991,7 @@ GameObject:
   - component: {fileID: 982911323}
   - component: {fileID: 982911325}
   - component: {fileID: 982911324}
+  - component: {fileID: 982911326}
   m_Layer: 5
   m_Name: Sticker
   m_TagString: Untagged
@@ -4726,6 +5056,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982911322}
   m_CullTransparentMesh: 1
+--- !u!95 &982911326
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982911322}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ac2b311b560335478690203bb9af5ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &997001183
 GameObject:
   m_ObjectHideFlags: 0
@@ -4758,11 +5110,11 @@ RectTransform:
   m_Children:
   - {fileID: 1476655000}
   - {fileID: 1952695625}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -351.6895, y: 60}
+  m_AnchoredPosition: {x: -351.68948, y: 60}
   m_SizeDelta: {x: 70.8857, y: 90.7643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &997001187
@@ -4787,7 +5139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 1476654999}
   frontSide: {fileID: 1952695624}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 8
 --- !u!1 &1002409344
 GameObject:
   m_ObjectHideFlags: 0
@@ -4870,13 +5223,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 436144550}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 436144550}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4947,14 +5300,14 @@ RectTransform:
   m_GameObject: {fileID: 1040645704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.83891, y: 1.83891, z: 1.83891}
+  m_LocalScale: {x: 1.1868683, y: 1.1868683, z: 1.1868683}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 978319216}
+  m_Father: {fileID: 334683467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -304.39734}
+  m_AnchoredPosition: {x: 0.0011817984, y: -286.82095}
   m_SizeDelta: {x: 379.05, y: 78.2549}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1040645706
@@ -5120,13 +5473,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432607715}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1432607715}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5388,13 +5741,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 310597953}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 310597953}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5657,13 +6010,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1559928720}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1559928720}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5757,6 +6110,7 @@ GameObject:
   - component: {fileID: 1179579066}
   - component: {fileID: 1179579065}
   - component: {fileID: 1179579064}
+  - component: {fileID: 1179579067}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5803,7 +6157,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5831,6 +6185,18 @@ MonoBehaviour:
       - m_Target: {fileID: 770183143}
         m_TargetAssemblyTypeName: PageSettings, Assembly-CSharp
         m_MethodName: GoToInstruction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1375402239}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5878,6 +6244,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179579062}
   m_CullTransparentMesh: 1
+--- !u!95 &1179579067
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179579062}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b93711aefe63b34694e9cbda3ee0af3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1191887069
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,6 +6413,7 @@ GameObject:
   - component: {fileID: 1217253674}
   - component: {fileID: 1217253676}
   - component: {fileID: 1217253675}
+  - component: {fileID: 1217253677}
   m_Layer: 5
   m_Name: MDA_Logo
   m_TagString: Untagged
@@ -6089,6 +6478,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217253673}
   m_CullTransparentMesh: 1
+--- !u!95 &1217253677
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217253673}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77f5c9b2dbb9e2740bcac5a3e2798987, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1256865386
 GameObject:
   m_ObjectHideFlags: 0
@@ -6121,11 +6532,11 @@ RectTransform:
   m_Children:
   - {fileID: 434798968}
   - {fileID: 1578265198}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -351.6895, y: 363.36383}
+  m_AnchoredPosition: {x: -351.68948, y: 363.36383}
   m_SizeDelta: {x: 70.8857, y: 90.7643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256865388
@@ -6143,6 +6554,7 @@ MonoBehaviour:
   backSide: {fileID: 434798967}
   frontSide: {fileID: 1578265197}
   flipDuration: 0.25
+  cardID: 8
 --- !u!222 &1256865391
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6233,13 +6645,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220789780}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 220789780}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6749,7 +7161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 01
+  m_text: 00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc328dfd095fd0540b6c15ec731b0b5a, type: 2}
   m_sharedMaterial: {fileID: -2760616687961372300, guid: cc328dfd095fd0540b6c15ec731b0b5a, type: 2}
@@ -6837,6 +7249,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1375402237}
+  - component: {fileID: 1375402239}
+  - component: {fileID: 1375402238}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -6859,6 +7273,121 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1375402238
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375402236}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1375402239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375402236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b24caa6db51754393b2b44efb424b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  audioSource: {fileID: 1375402238}
+  clickSFX: {fileID: 8300000, guid: 291c5f3e45f98174a8d50eeaeb535124, type: 3}
+  winSFX: {fileID: 8300000, guid: e573e46c194260e44adb62b014019482, type: 3}
+  loseSFX: {fileID: 8300000, guid: 349ca6923010e684cbafb3a5c89b7dc9, type: 3}
+  cardFlipSFX: {fileID: 8300000, guid: 0748fca9c8add6849a076862a7113eca, type: 3}
+  cardPairedSFX: {fileID: 8300000, guid: 5689d76da9338f942bc0cc43974df230, type: 3}
 --- !u!1 &1384676551
 GameObject:
   m_ObjectHideFlags: 0
@@ -6922,13 +7451,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 436144550}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 436144550}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7073,13 +7602,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 404309822}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 404309822}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7155,7 +7684,7 @@ RectTransform:
   m_Children:
   - {fileID: 1050343564}
   - {fileID: 1856354359}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -7176,7 +7705,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 1050343560}
   frontSide: {fileID: 1856354358}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 6
 --- !u!222 &1432607716
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7267,13 +7797,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 997001188}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 997001188}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7349,11 +7879,11 @@ RectTransform:
   m_Children:
   - {fileID: 385362227}
   - {fileID: 1132363119}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -116, y: 59}
+  m_AnchoredPosition: {x: -115.99997, y: 59}
   m_SizeDelta: {x: 70.8857, y: 90.7643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559928720
@@ -7370,7 +7900,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 385362223}
   frontSide: {fileID: 1132363118}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 2
 --- !u!222 &1559928721
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7461,13 +7992,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1256865388}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1256865388}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7541,7 +8072,6 @@ RectTransform:
   m_Children:
   - {fileID: 273647235}
   - {fileID: 915234474}
-  - {fileID: 1941711679}
   - {fileID: 917449058}
   m_Father: {fileID: 158631363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7632,13 +8162,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 590874307}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 590874307}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7745,13 +8275,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 648549043}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 648549043}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7896,13 +8426,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 294979659}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 294979659}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8103,13 +8633,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1899858436}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1899858436}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8321,11 +8851,11 @@ RectTransform:
   m_Children:
   - {fileID: 551393909}
   - {fileID: 590088511}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -351.6895, y: -537}
+  m_AnchoredPosition: {x: -351.68948, y: -537}
   m_SizeDelta: {x: 70.8857, y: 90.7643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1728673975
@@ -8350,7 +8880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 551393905}
   frontSide: {fileID: 590088510}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 1
 --- !u!1 &1749122285
 GameObject:
   m_ObjectHideFlags: 0
@@ -8569,13 +9100,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1432607715}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1432607715}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8682,13 +9213,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 294979659}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 294979659}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8783,11 +9314,11 @@ RectTransform:
   m_Children:
   - {fileID: 888857030}
   - {fileID: 1662782944}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -116, y: 363.36383}
+  m_AnchoredPosition: {x: -115.99997, y: 363.36383}
   m_SizeDelta: {x: 70.8857, y: 90.7643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1899858435
@@ -8812,7 +9343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 888857026}
   frontSide: {fileID: 1662782943}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 2
 --- !u!1 &1921120841
 GameObject:
   m_ObjectHideFlags: 0
@@ -8870,7 +9402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ac2de18cc19715045af4c09b1c880191, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7ae132c8ed09614c9bbd941cec71ca2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8915,14 +9447,14 @@ RectTransform:
   m_GameObject: {fileID: 1941711678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.83891, y: 1.83891, z: 1.83891}
+  m_LocalScale: {x: 1.179907, y: 1.179907, z: 1.179907}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1600410060}
+  m_Father: {fileID: 915234474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -304.39728}
+  m_AnchoredPosition: {x: 0.0012531911, y: -285.13852}
   m_SizeDelta: {x: 406.5075, y: 78.2549}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1941711680
@@ -9056,22 +9588,8 @@ RectTransform:
   - {fileID: 1055902211}
   - {fileID: 1944291090}
   - {fileID: 1282679142}
-  - {fileID: 1256865387}
-  - {fileID: 997001184}
-  - {fileID: 590874303}
-  - {fileID: 1728673972}
-  - {fileID: 1899858432}
-  - {fileID: 1559928719}
-  - {fileID: 220789779}
-  - {fileID: 310597952}
-  - {fileID: 404309821}
-  - {fileID: 154178324}
-  - {fileID: 294979658}
-  - {fileID: 436144549}
-  - {fileID: 1432607714}
-  - {fileID: 2040677917}
-  - {fileID: 648549042}
-  - {fileID: 827250008}
+  - {fileID: 712089822}
+  - {fileID: 547874852}
   m_Father: {fileID: 158631363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9434,13 +9952,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154178325}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 154178325}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9566,13 +10084,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 997001188}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 997001188}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9648,7 +10166,7 @@ RectTransform:
   m_Children:
   - {fileID: 536470220}
   - {fileID: 577935340}
-  m_Father: {fileID: 1942164882}
+  m_Father: {fileID: 712089822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -9669,7 +10187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlipCard
   backSide: {fileID: 536470216}
   frontSide: {fileID: 577935339}
-  flipDuration: 0.2
+  flipDuration: 0.25
+  cardID: 6
 --- !u!222 &2040677919
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9741,13 +10260,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 827250009}
-        m_TargetAssemblyTypeName: FlipCard, Assembly-CSharp
-        m_MethodName: CardClick
-        m_Mode: 1
+      - m_Target: {fileID: 875662203}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
+        m_MethodName: CardClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 827250009}
+          m_ObjectArgumentAssemblyTypeName: FlipCard, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

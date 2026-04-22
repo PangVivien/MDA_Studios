@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using UnityEngine.UIElements;
 
 public class FlipCard : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class FlipCard : MonoBehaviour
 
     private bool isFrontVisible = false;
     private bool isAnimating = false;
+    private bool isClickable = true;
 
     public Action<FlipCard> CardClicked;
 
@@ -23,7 +25,7 @@ public class FlipCard : MonoBehaviour
     }
     void OnClick()
     {
-        if (isAnimating || isFrontVisible) return;
+        if (!isClickable || isAnimating || isFrontVisible) return;
 
         CardClicked?.Invoke(this);
     }
@@ -42,6 +44,8 @@ public class FlipCard : MonoBehaviour
     System.Collections.IEnumerator Flip(bool showFront)
     {
         isAnimating = true;
+
+        SoundManager.Instance?.PlayCardFlip();
 
         float elapsed = 0f;
         Vector3 originalScale = transform.localScale;
@@ -85,4 +89,13 @@ public class FlipCard : MonoBehaviour
         }
     }
 
+    public void SetClickable(bool clickable)
+    {
+        isClickable = clickable;
+    }
+
+    public void ResetClickable()
+    {
+        isClickable = true;
+    }
 }

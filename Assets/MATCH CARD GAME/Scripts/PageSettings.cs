@@ -69,8 +69,16 @@ public class PageSettings : MonoBehaviour
 
     public void GoToInstruction() => StartCoroutine(SwitchPage(instructionPage));
     public void GoToGame() => StartCoroutine(SwitchPage(gamePage));
-    public void GoToWin() => StartCoroutine(SwitchPage(winPage));
-    public void GoToLose() => StartCoroutine(SwitchPage(losePage));
+    public void GoToWin()
+    {
+        SoundManager.Instance?.PlayWin();
+        StartCoroutine(SwitchPage(winPage));
+    }
+    public void GoToLose()
+    {
+        SoundManager.Instance?.PlayLose();
+        StartCoroutine(SwitchPage(losePage));
+    }
     public void GoToHome() => StartCoroutine(SwitchPage(homePage));
 
     private void CardOpened()

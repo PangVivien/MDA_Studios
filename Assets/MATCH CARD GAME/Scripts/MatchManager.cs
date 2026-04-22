@@ -37,6 +37,11 @@ public class MatchManager : MonoBehaviour
 
         if (firstCard.cardID == secondCard.cardID)
         {
+            SoundManager.Instance?.PlayCardPaired();
+
+            firstCard.SetClickable(false);
+            secondCard.SetClickable(false);
+
             matchedPairs++;
 
             if (matchedPairs >= totalPairs)
