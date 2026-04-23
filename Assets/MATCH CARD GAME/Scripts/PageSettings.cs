@@ -32,7 +32,7 @@ public class PageSettings : MonoBehaviour
     private FlipCard[] cardScripts;
     private int cardsFlippedCount = 0;
     private bool isGameTimerRunning = false;
-    private float gameTimer = 60f;
+    private float gameTimer = 50f;
 
     void Start()
     {
@@ -62,6 +62,10 @@ public class PageSettings : MonoBehaviour
             if (gameTimer <= 0f)
             {
                 isGameTimerRunning = false;
+
+                if (Cover != null)
+                    Cover.SetActive(true);
+
                 GoToLose();
             }
         }
@@ -71,13 +75,16 @@ public class PageSettings : MonoBehaviour
     public void GoToGame() => StartCoroutine(SwitchPage(gamePage));
     public void GoToWin()
     {
-        SoundManager.Instance?.PlayWin();
         StartCoroutine(SwitchPage(winPage));
+        SoundManager.Instance?.PlayWin();
     }
     public void GoToLose()
     {
-        SoundManager.Instance?.PlayLose();
+        if (Cover != null)
+            Cover.SetActive(true);
+
         StartCoroutine(SwitchPage(losePage));
+        SoundManager.Instance?.PlayLose();
     }
     public void GoToHome() => StartCoroutine(SwitchPage(homePage));
 
@@ -88,7 +95,7 @@ public class PageSettings : MonoBehaviour
         if (cardsFlippedCount >= allCards.Length)
         {
             isGameTimerRunning = false;
-            StartCoroutine(WinWithDelay());
+            StartCoroutine(WinDelay());
         }
     }
 
@@ -101,14 +108,14 @@ public class PageSettings : MonoBehaviour
         if (cardsFlippedCount >= allCards.Length)
         {
             isGameTimerRunning = false;
-            StartCoroutine(WinWithDelay());
+            StartCoroutine(WinDelay());
         }
     }
 
     public void ResetAllCards()
     {
         cardsFlippedCount = 0;
-        gameTimer = 60f;
+        gameTimer = 50f;
         isGameTimerRunning = false;
 
         foreach (var card in allCards)
@@ -124,8 +131,11 @@ public class PageSettings : MonoBehaviour
         }
     }
 
-    private IEnumerator WinWithDelay()
+    private IEnumerator WinDelay()
     {
+        if (Cover != null)
+            Cover.SetActive(true);
+
         yield return new WaitForSeconds(0.5f);
         GoToWin();
     }
@@ -173,10 +183,10 @@ public class PageSettings : MonoBehaviour
         if (gameCountdownText != null)
         {
             gameCountdownText.gameObject.SetActive(true);
-            gameCountdownText.text = "60";
+            gameCountdownText.text = "50";
         }
 
-        gameTimer = 60f;
+        gameTimer = 30f;
         isGameTimerRunning = true;
         EnableCardClicks(true);
     }

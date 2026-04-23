@@ -13,6 +13,7 @@ public class FlipCard : MonoBehaviour
     private bool isFrontVisible = false;
     private bool isAnimating = false;
     private bool isClickable = true;
+    private bool isMatched = false;
 
     public Action<FlipCard> CardClicked;
 
@@ -34,11 +35,15 @@ public class FlipCard : MonoBehaviour
     {
         if (isAnimating || isFrontVisible) return;
         StartCoroutine(Flip(true));
+
+        isClickable = false;
     }
     public void ShowBack()
     {
         if (isAnimating || !isFrontVisible) return;
         StartCoroutine(Flip(false));
+
+        isClickable = true;
     }
 
     System.Collections.IEnumerator Flip(bool showFront)
@@ -81,12 +86,22 @@ public class FlipCard : MonoBehaviour
     {
         if (isAnimating) return;
 
-        if (isFrontVisible)
-        {
-            isFrontVisible = false;
-            backSide.SetActive(true);
-            frontSide.SetActive(false);
-        }
+        isFrontVisible = false;
+        isMatched = false;
+        isClickable = true;
+
+        backSide.SetActive(true);
+        frontSide.SetActive(false);
+    }
+
+    public void SetMatched()
+    {
+        isMatched = true;
+    }
+
+    public bool IsMatched()
+    {
+        return isMatched;
     }
 
     public void SetClickable(bool clickable)

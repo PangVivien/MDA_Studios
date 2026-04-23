@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using System.Collections;
 
 public class SoundManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip loseSFX;
     public AudioClip cardFlipSFX;
     public AudioClip cardPairedSFX;
+
+    private float lastFlipTime = 0f;
+    public float flipCooldown = 0.05f;
 
     void Awake()
     {
@@ -41,7 +45,7 @@ public class SoundManager : MonoBehaviour
     {
         if (audioSource != null && winSFX != null)
         {
-            audioSource.PlayOneShot(winSFX);
+            StartCoroutine(Delayed(winSFX, 0.5f));
         }
     }
 
@@ -49,7 +53,7 @@ public class SoundManager : MonoBehaviour
     {
         if (audioSource != null && loseSFX != null)
         {
-            audioSource.PlayOneShot(loseSFX);
+            StartCoroutine(Delayed(loseSFX, 0.5f));
         }
     }
     public void PlayCardFlip()
@@ -73,5 +77,11 @@ public class SoundManager : MonoBehaviour
         {
             audioSource.PlayOneShot(clip);
         }
+    }
+
+    private IEnumerator Delayed(AudioClip clip, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        audioSource.PlayOneShot(clip);
     }
 }

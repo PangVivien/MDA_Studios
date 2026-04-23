@@ -16,6 +16,10 @@ public class MatchManager : MonoBehaviour
     {
         if (isChecking) return;
 
+        if (card.IsMatched()) return;
+
+        if (card == firstCard) return;
+
         if (firstCard == null)
         {
             firstCard = card;
@@ -25,22 +29,26 @@ public class MatchManager : MonoBehaviour
         {
             secondCard = card;
             card.ShowFront();
+
+            isChecking = true; 
+
             StartCoroutine(CheckMatch());
         }
     }
 
     IEnumerator CheckMatch()
     {
-        isChecking = true;
-
         yield return new WaitForSeconds(0.5f);
 
         if (firstCard.cardID == secondCard.cardID)
         {
-            SoundManager.Instance?.PlayCardPaired();
+            firstCard.SetMatched();
+            secondCard.SetMatched();
 
             firstCard.SetClickable(false);
             secondCard.SetClickable(false);
+
+            SoundManager.Instance?.PlayCardPaired();
 
             matchedPairs++;
 
