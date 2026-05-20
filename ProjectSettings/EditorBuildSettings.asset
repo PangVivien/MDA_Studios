@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene_WeddingPostCard.unity
     guid: 71126ba4955b6eb488f23141d7241dd1
   - enabled: 0
     path: Assets/Scenes/SampleScene_MatchCardGame.unity
     guid: 82f229fcb52217f498229768d954b91d
+  - enabled: 1
+    path: Assets/Scenes/SampleScene_PinBallGame.unity
+    guid: 2fd20e60d6f2d594da283d0a5c334642
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
