@@ -8,7 +8,7 @@ public class Bumpers : MonoBehaviour
     public int points = 1000;
     public string bumperType = "";
     public float scaleSpeed = 10f;
-    public float scaleAmount = 0.3f;
+    public float scaleAmount = 0.5f;
 
     [Header("Visual Effects")]
     public Color hitColor = Color.red;
@@ -63,7 +63,7 @@ public class Bumpers : MonoBehaviour
             // Optional: Add Force
             Rigidbody2D ball = collision.rigidbody;
             Vector2 direction = (ball.position - (Vector2)transform.position).normalized;
-            ball.AddForce(direction * 10f, ForceMode2D.Impulse);
+            ball.AddForce(direction * 15f, ForceMode2D.Impulse);
 
             Debug.Log("Bumper Hit! +" + points + " Points");
         }

@@ -77,11 +77,11 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = FormatScore(totalScore);
 
         // INDIVIDUAL
-        sendMoneyText.text = "$" + sendMoneyScore;
-        billPaymentText.text = "$" + billPaymentScore;
-        remittanceText.text = "$" + remittanceScore;
-        mobileTopupText.text = "$" + mobileTopupScore;
-        cardTransactionText.text = "$" + cardTransactionScore;
+        sendMoneyText.text = "" + sendMoneyScore;
+        billPaymentText.text = "" + billPaymentScore;
+        remittanceText.text = "" + remittanceScore;
+        mobileTopupText.text = "" + mobileTopupScore;
+        cardTransactionText.text = "" + cardTransactionScore;
     }
 
     string FormatScore(int score)

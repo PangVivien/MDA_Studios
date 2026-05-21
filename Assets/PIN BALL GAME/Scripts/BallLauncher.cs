@@ -13,6 +13,7 @@ public class BallLauncher : MonoBehaviour
     private Vector2 originalPosition;
 
     private bool charging = false;
+    private bool isKinematic = false;
 
     void Start()
     {
