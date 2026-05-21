@@ -4,85 +4,67 @@ public class RespawnBall : MonoBehaviour
 {
     public GameObject ball;
     public Transform respawnPoint;
-    public string SpawnTag = "Respawn";
-    public float respawnDelay = 1f;      
-    public float stayInHoleTime = 1.5f;  
+
+    public float stayInHoleTime = 1.5f;
 
     private Rigidbody2D ballRb;
-    private bool isRespawning = false;
+    private bool waitingForRespawn = false;
 
     void Start()
     {
-        if (ball != null)
+        ballRb = ball.GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        if (!waitingForRespawn) return;
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            ballRb = ball.GetComponent<Rigidbody2D>();
+            Respawn();
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == ball && !isRespawning)
+        if (other.gameObject == ball && !waitingForRespawn)
         {
-            StartCoroutine(RespawnBallCoroutine());
+            StartCoroutine(BallLost());
         }
     }
 
-    System.Collections.IEnumerator RespawnBallCoroutine()
+    System.Collections.IEnumerator BallLost()
     {
-        isRespawning = true;
+        waitingForRespawn = true;
 
-        if (ball != null)
-        {
-            if (ballRb != null)
-            {
-                ballRb.linearVelocity = Vector2.zero;
-                ballRb.angularVelocity = 0f;
-                ballRb.isKinematic = true;  
-            }
+        ballRb.linearVelocity = Vector2.zero;
+        ballRb.angularVelocity = 0f;
+        ballRb.isKinematic = true;
 
-            // Optional: Change Ball Color
-            SpriteRenderer ballSprite = ball.GetComponent<SpriteRenderer>();
-            if (ballSprite != null)
-            {
-                ballSprite.color = Color.gray;  
-            }
+        ball.SetActive(false);
 
-            Debug.Log("Ball in hole! Waiting " + stayInHoleTime + " seconds...");
+        Debug.Log("Ball Lost");
 
-            // Wait at Hole
-            yield return new WaitForSeconds(stayInHoleTime);
+        yield return new WaitForSeconds(stayInHoleTime);
 
-            ball.SetActive(false);
-            Debug.Log("Ball Disabled");
+        Debug.Log("Press to Respawn");
+    }
 
-            yield return new WaitForSeconds(respawnDelay);
+    void Respawn()
+    {
+        ball.transform.position = respawnPoint.position;
 
-            ball.transform.position = respawnPoint.position;
+        ball.SetActive(true);
 
-            if (ballRb != null)
-            {
-                ballRb.linearVelocity = Vector2.zero;
-                ballRb.angularVelocity = 0f;
-                ballRb.isKinematic = true;
-            }
+        ballRb.isKinematic = false;
+        ballRb.linearVelocity = Vector2.zero;
+        ballRb.angularVelocity = 0f;
 
-            if (ballSprite != null)
-            {
-                ballSprite.color = Color.white;
-            }
+        waitingForRespawn = false;
 
-            ball.SetActive(true);
-            Debug.Log("Ball Enabled at respawn point");
+        Debug.Log("Respawned");
 
-            yield return new WaitForSeconds(0.1f);
-
-            if (ballRb != null)
-            {
-                ballRb.isKinematic = false;
-            }
-        }
-
-        isRespawning = false;
-        Debug.Log("Respawn Complete");
+        // RESET SCORE ONCE/LIFE
+        ScoreManager.Instance?.ResetScore();
     }
 }

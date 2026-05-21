@@ -6,12 +6,12 @@ public class Bumpers : MonoBehaviour
 {
     [Header("Bumper Settings")]
     public int points = 1000;
+    public string bumperType = "";
     public float scaleSpeed = 10f;
     public float scaleAmount = 0.3f;
 
     [Header("Visual Effects")]
     public Color hitColor = Color.red;
-
     private Vector3 originalScale;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
@@ -55,9 +55,9 @@ public class Bumpers : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Add Score
-            ScoreManager.Instance?.AddScore(points);
+            ScoreManager.Instance?.AddScore(bumperType, points);
 
-            // Play Animation
+
             HitAnimation();
 
             // Optional: Add Force
@@ -65,7 +65,7 @@ public class Bumpers : MonoBehaviour
             Vector2 direction = (ball.position - (Vector2)transform.position).normalized;
             ball.AddForce(direction * 10f, ForceMode2D.Impulse);
 
-            Debug.Log("Bumper hit! +" + points + " points");
+            Debug.Log("Bumper Hit! +" + points + " Points");
         }
     }
 
