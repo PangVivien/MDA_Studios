@@ -19,7 +19,7 @@ public class RespawnBall : MonoBehaviour
     {
         if (!waitingForRespawn) return;
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Backspace))
         {
             Respawn();
         }
@@ -30,6 +30,7 @@ public class RespawnBall : MonoBehaviour
         if (other.gameObject == ball && !waitingForRespawn)
         {
             StartCoroutine(BallLost());
+            SFXManager.Instance?.LoseSFX();
         }
     }
 

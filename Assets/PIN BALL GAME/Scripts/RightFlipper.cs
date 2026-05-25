@@ -6,7 +6,7 @@ public class RightFlipper : MonoBehaviour
     public Transform flipperVisual;
     public float rotationAngle = 45f;
     public float rotationSpeed = 300f;
-    public KeyCode inputKey = KeyCode.RightArrow;
+    public KeyCode inputKey = KeyCode.Backspace;
 
     private Quaternion restRotation;
     private Quaternion pressedRotation;
@@ -15,9 +15,9 @@ public class RightFlipper : MonoBehaviour
     void Start()
     {
         restRotation = flipperVisual.localRotation;
-        pressedRotation = Quaternion.Euler(0, 0, -rotationAngle);  
+        pressedRotation = Quaternion.Euler(0, 0, -rotationAngle);
 
-        if (anchorPoint != null)
+        if (anchorPoint != null && anchorPoint is RectTransform == false)
         {
             anchorPoint.parent = transform;
         }

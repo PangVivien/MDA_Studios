@@ -57,7 +57,7 @@ public class Bumpers : MonoBehaviour
             // Add Score
             ScoreManager.Instance?.AddScore(bumperType, points);
 
-
+            SFXManager.Instance?.BumperSFX();
             HitAnimation();
 
             // Optional: Add Force

@@ -3,7 +3,8 @@ using UnityEngine;
 public class BallLauncher : MonoBehaviour
 {
     public Rigidbody2D ball;
-    public RectTransform springVisual; 
+    public RectTransform springVisual;
+    public Collider2D launchTrigger;
 
     public float launchPower = 0f;
     public float maxPower = 2000f;
@@ -13,7 +14,8 @@ public class BallLauncher : MonoBehaviour
     private Vector2 originalPosition;
 
     private bool charging = false;
-    private bool isKinematic = false;
+    private bool canLaunch = false;
+    //private bool isKinematic = false;
 
     void Start()
     {
@@ -24,15 +26,29 @@ public class BallLauncher : MonoBehaviour
 
         if (ball != null)
         {
-            ball.isKinematic = true;
+            //ball.isKinematic = true;
+        }
+
+        if (launchTrigger == null)
+        {
+            launchTrigger = GetComponentInChildren<Collider2D>();
+            if (launchTrigger != null)
+            {
+                Debug.Log("Found Trigger: " + launchTrigger.gameObject.name);
+            }
         }
     }
 
     void Update()
     {
         // Hold BOTH Arrows
-        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+        if (canLaunch && Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.Backspace))
         {
+            if (!charging)
+            {
+                SFXManager.Instance?.StartCharging();
+            }
+
             charging = true;
 
             // Increase Power
@@ -49,7 +65,7 @@ public class BallLauncher : MonoBehaviour
             Debug.Log("Power: " + launchPower);
         }
 
-        if (charging && (!Input.GetKey(KeyCode.LeftArrow) || !Input.GetKey(KeyCode.RightArrow)))
+        if (charging && (!Input.GetKey(KeyCode.Space) || !Input.GetKey(KeyCode.Backspace)))
         {
             Launch();
         }
@@ -58,10 +74,14 @@ public class BallLauncher : MonoBehaviour
     void Launch()
     {
         charging = false;
+        canLaunch = false;
+
+        SFXManager.Instance?.StopCharging();
+        SFXManager.Instance?.LaunchSFX();
 
         if (ball != null)
         {
-            ball.isKinematic = false;
+            //ball.isKinematic = false;
             ball.AddForce(Vector2.up * launchPower, ForceMode2D.Impulse);
         }
 
@@ -72,5 +92,24 @@ public class BallLauncher : MonoBehaviour
 
         launchPower = 0f;
         Debug.Log("Launched!");
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject == ball.gameObject)
+        {
+            canLaunch = true;
+            //ball.isKinematic = true;
+            ball.linearVelocity = Vector2.zero;
+            Debug.Log("Ball in TRIGGER");
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject == ball.gameObject)
+        {
+            canLaunch = false;
+        }
     }
 }

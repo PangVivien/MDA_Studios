@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class LeftFlipper : MonoBehaviour
 {
-    public Transform anchorPoint;      
-    public Transform flipperVisual;  
+    public Transform anchorPoint;
+    public Transform flipperVisual;
     public float rotationAngle = 45f;
     public float rotationSpeed = 300f;
-    public KeyCode inputKey = KeyCode.LeftArrow;
+    public KeyCode inputKey = KeyCode.Space;
 
     private Quaternion restRotation;
     private Quaternion pressedRotation;
@@ -16,11 +16,6 @@ public class LeftFlipper : MonoBehaviour
     {
         restRotation = flipperVisual.localRotation;
         pressedRotation = Quaternion.Euler(0, 0, rotationAngle);
-
-        if (anchorPoint != null)
-        {
-            anchorPoint.parent = transform;
-        }
     }
 
     void Update()
