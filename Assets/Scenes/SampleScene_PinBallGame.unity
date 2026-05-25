@@ -912,6 +912,7 @@ GameObject:
   - component: {fileID: 278138811}
   - component: {fileID: 278138810}
   - component: {fileID: 278138812}
+  - component: {fileID: 278138813}
   m_Layer: 5
   m_Name: Blocks_02
   m_TagString: Untagged
@@ -1029,6 +1030,18 @@ PolygonCollider2D:
       - {x: -855.55396, y: -1246.5177}
       - {x: 382.58154, y: 1527.2815}
   m_UseDelaunayMesh: 0
+--- !u!114 &278138813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278138808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a067f9042754aad46a80ad58cdbf83b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlockBump
 --- !u!1 &324988703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,6 +1686,7 @@ MonoBehaviour:
   chargingSFX: {fileID: 8300000, guid: 48c14c38722e95943855ab6856c14eb8, type: 3}
   launchSFX: {fileID: 8300000, guid: fac8ba34c12be2f469a24ce8f33a4210, type: 3}
   bumperSFX: {fileID: 8300000, guid: 5d4dc73fd44d5e347b63a841a5f14c1b, type: 3}
+  blockSFX: {fileID: 8300000, guid: 1d61408a210f90b46be5a06eb5c5df04, type: 3}
   loseSFX: {fileID: 8300000, guid: 1ed64657c96515d4eb7f094af329a488, type: 3}
 --- !u!1 &570475663
 GameObject:
@@ -1744,8 +1758,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 37.82469, y: 64.22328}
-  m_Radius: 66.71827
+  m_Offset: {x: 37.82469, y: 60.580685}
+  m_Radius: 70.36086
 --- !u!1 &590470328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,8 +2540,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -44.570892, y: 52.03234}
-  m_Radius: 65.56555
+  m_Offset: {x: -44.570892, y: 49.099426}
+  m_Radius: 68.49848
 --- !u!1 &912540993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5775,6 +5789,7 @@ GameObject:
   - component: {fileID: 2009066226}
   - component: {fileID: 2009066225}
   - component: {fileID: 2009066227}
+  - component: {fileID: 2009066228}
   m_Layer: 5
   m_Name: Blocks_01
   m_TagString: Untagged
@@ -5891,6 +5906,18 @@ PolygonCollider2D:
       - {x: -392.40497, y: 1531.6427}
       - {x: 839.5519, y: -1311.0001}
   m_UseDelaunayMesh: 0
+--- !u!114 &2009066228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009066223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a067f9042754aad46a80ad58cdbf83b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlockBump
 --- !u!1 &2084387968
 GameObject:
   m_ObjectHideFlags: 0

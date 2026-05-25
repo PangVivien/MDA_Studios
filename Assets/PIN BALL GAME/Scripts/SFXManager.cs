@@ -9,6 +9,7 @@ public class SFXManager : MonoBehaviour
     public AudioClip chargingSFX;
     public AudioClip launchSFX;
     public AudioClip bumperSFX;
+    public AudioClip blockSFX;
     public AudioClip loseSFX;
 
     private bool isCharging = false;
@@ -58,6 +59,14 @@ public class SFXManager : MonoBehaviour
         if (launchSFX != null)
         {
             SFXSource.PlayOneShot(launchSFX);
+        }
+    }
+
+    public void BlockSFX()
+    {
+        if (launchSFX != null)
+        {
+            SFXSource.PlayOneShot(blockSFX);
         }
     }
 
